@@ -3,6 +3,7 @@ package pageObjects;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class HomeBlogPage extends BasePage {
 
@@ -48,11 +49,23 @@ public class HomeBlogPage extends BasePage {
     @FindBy(className = "post__description")
     public WebElement firstPostDescription;
 
+    @FindBy(className = "post-content__top")
+    public WebElement createdPostTitleField;
+
+    @FindBy(className = "post")
+    public WebElement firstPostFrame;
+
+    @FindBy(css = "label[for='myPostsId']")
+    public WebElement myPostsSwitcher;
+
+    @FindBy(css = "a[class='menu-item '] span")
+    public WebElement myDraftsOption;
+
+    @FindBy(css = "label[for='draftCheckbox']n")
+    public WebElement saveAsADraftSwitcher;
 
 
-//    private SelenideElement myPostsSwitcher = $("label[for='myPostsId']");
-//    private SelenideElement saveAsADraftSwitcher = $("label[for='draftCheckbox']");
-//    private SelenideElement myDraftsOption = $("a[class='menu-item '] span");
+
 //    private SelenideElement firstPostTitle = $(byClassName("post-content__top"));
 //    private SelenideElement firstPostDescription = $(byClassName("post__description"));
 //    private SelenideElement createdPostTitleField = $(byClassName("post-content__top"));
@@ -77,6 +90,18 @@ public class HomeBlogPage extends BasePage {
     public void clickOnSubmitButton() {
         submitButton.click();
     }
+
+    public void clickOnSaveAsDraftSwitcher() {
+        saveAsDraftSwitcher.click();
+    }
+
+    public void clickOnMyDraftsOption() {
+        myDraftsOption.click();
+    }
+
+    public void clickOnMyPostSwitcher() {myPostsSwitcher.click(); }
+
+    public void clickOnSaveAsADraftSwitcher() {saveAsADraftSwitcher.click(); }
 
 
     public HomeBlogPage (WebDriver driver) {

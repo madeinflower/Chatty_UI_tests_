@@ -24,6 +24,7 @@ public abstract class BaseTest {
         driver = new ChromeDriver();
         loginPage = new LoginPage(driver);
         driver.get("http://chatty.telran-edu.de:8089/login");
+        driver.manage().window().maximize();
     }
 
     public void loginWithValidData() {
