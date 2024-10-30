@@ -6,10 +6,6 @@ import org.openqa.selenium.support.FindBy;
 
 public class LoginPage extends BasePage {
 
-    private HomePage homePage;
-    private Header header;
-
-
     @FindBy(xpath = "//form[@class='form']")
     public WebElement loginForm;
 
@@ -31,6 +27,10 @@ public class LoginPage extends BasePage {
     @FindBy(css = "img[alt='open']")
     public WebElement passwordEyeOpen;
 
+    @FindBy(css = "p[class='link'] a")
+    public WebElement signUpButton;
+
+
     public void inputEmail(String email) {
         inputEmail.clear();
         inputEmail.sendKeys(email);
@@ -44,6 +44,11 @@ public class LoginPage extends BasePage {
     public void submitForm() {
         loginButton.click();
     }
+
+    public void clickOnSignUpButton() {
+        signUpButton.click();
+    }
+
 
     public void verifyPasswordEyeCloseIsDisplayed() {
         waitForVisibility(passwordEyeClose);
