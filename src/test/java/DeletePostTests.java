@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static pageObjects.BasePage.wait;
 
-public class DeletePostTests extends BaseTest {
+public class DeletePostTests extends BaseTestUser {
 
     private HomeBlogPage homeBlogPage;
     private Header header;
@@ -17,7 +17,7 @@ public class DeletePostTests extends BaseTest {
 
     @BeforeEach
     public void setUpTest() {
-        loginWithValidData();
+        loginWithValidDataUser();
         homeBlogPage = new HomeBlogPage(driver);
         header = new Header(driver);
         editPage = new EditPage(driver);

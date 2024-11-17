@@ -1,20 +1,15 @@
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import pageObjects.LoginPage;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static pageObjects.BasePage.wait;
 
-public abstract class BaseTest {
+public abstract class BaseTestUser {
     protected WebDriver driver;
     protected LoginPage loginPage;
 
@@ -27,7 +22,7 @@ public abstract class BaseTest {
         driver.manage().window().maximize();
     }
 
-    public void loginWithValidData() {
+    public void loginWithValidDataUser() {
         loginPage.inputEmail("tatsenko.tetiana@gmail.com");
         loginPage.inputPassword("Qwerty12345");
         loginPage.submitForm();

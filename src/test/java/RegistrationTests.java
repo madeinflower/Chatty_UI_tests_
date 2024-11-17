@@ -1,14 +1,12 @@
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import pageObjects.*;
 
-import static java.lang.Thread.sleep;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static pageObjects.BasePage.wait;
 
-public class RegistrationTests extends BaseTest{
+public class RegistrationTests extends BaseTestUser {
 
     private RegistrationPage registrationPage;
     private Header header;
@@ -16,7 +14,6 @@ public class RegistrationTests extends BaseTest{
 
     @BeforeEach
     public void setUpTest() {
-        //loginWithValidData();
         registrationPage = new RegistrationPage(driver);
         header = new Header(driver);
     }

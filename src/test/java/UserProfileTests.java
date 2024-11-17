@@ -8,7 +8,7 @@ import pageObjects.UserProfilePage;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static pageObjects.BasePage.wait;
 
-public class UserProfileTests extends BaseTest {
+public class UserProfileTests extends BaseTestUser {
 
     private Header header;
     private UserProfilePage userProfilePage;
@@ -16,8 +16,8 @@ public class UserProfileTests extends BaseTest {
 
     @BeforeEach
     public void setUpTest() {
-        loginWithValidData();  // Вынесенный метод логина
-        header = new Header(driver);  // Инициализация заголовка
+        loginWithValidDataUser();
+        header = new Header(driver);
         userProfilePage = new UserProfilePage(driver);
     }
 
@@ -143,9 +143,9 @@ public class UserProfileTests extends BaseTest {
         userProfilePage.passwordField.click();
         wait.until(ExpectedConditions.visibilityOf(userProfilePage.passwordChangingPopUp));
         assertTrue(userProfilePage.passwordChangingPopUp.isDisplayed());
-        userProfilePage.oldPasswordField.sendKeys("Qwerty12345");
-        userProfilePage.newPasswordField.sendKeys("Qwerty1234");
-        userProfilePage.confirmNewPasswordField.sendKeys("Qwerty1234");
+        userProfilePage.oldPasswordField.sendKeys("Qwerty1234");
+        userProfilePage.newPasswordField.sendKeys("Qwerty12345");
+        userProfilePage.confirmNewPasswordField.sendKeys("Qwerty12345");
         userProfilePage.passwordChangingPopUpSaveButton.click();
         userProfilePage.saveButton.click();
         wait.until(ExpectedConditions.textToBePresentInElement(userProfilePage.editCancelElement, "Edit"));

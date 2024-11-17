@@ -3,13 +3,13 @@ import org.junit.jupiter.api.Test;
 import pageObjects.Header;
 import pageObjects.UserProfilePage;
 
-public class HeaderTests extends BaseTest {
+public class HeaderTests extends BaseTestUser {
     private Header header;
     private UserProfilePage userProfilePage;
 
     @BeforeEach
     public void setUpTest() {
-        loginWithValidData();  // Вынесенный метод логина
+        loginWithValidDataUser();  // Вынесенный метод логина
         header = new Header(driver);  // Инициализация заголовка
     }
 

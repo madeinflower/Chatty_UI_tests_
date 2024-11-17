@@ -3,19 +3,18 @@ import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import pageObjects.ContactUsPage;
-import pageObjects.DraftsPage;
 import pageObjects.Header;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static pageObjects.BasePage.wait;
 
-public class ContactUsTests extends BaseTest {
+public class ContactUsTests extends BaseTestUser {
     private Header header;
     private ContactUsPage contactUsPage;
 
     @BeforeEach
     public void setUpTest() {
-        loginWithValidData();
+        loginWithValidDataUser();
         header = new Header(driver);
         contactUsPage = new ContactUsPage(driver);
     }
@@ -48,7 +47,7 @@ public class ContactUsTests extends BaseTest {
     }
 
         @Test
-        @Disabled // Не могу поймать локатор Заполните Это поле окошка
+        @Disabled // Не могу поймать локатор окошка Заполните Это поле
         public void submitFeedbackWithInvalidEmailFormat() {
         wait.until(ExpectedConditions.visibilityOf(header.contactTab));
         header.hoverOverContactTab();

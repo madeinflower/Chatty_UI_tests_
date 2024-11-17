@@ -6,14 +6,14 @@ import pageObjects.LoginPage;
 import static org.junit.jupiter.api.Assertions.*;
 import static pageObjects.BasePage.wait;
 
-public class LoginLogoutTests extends BaseTest {
+public class LoginLogoutTests extends BaseTestUser {
     private Header header;
     private LoginPage loginPage;
 
 
         @Test
         public void testLoginWithValidData() {
-            loginWithValidData();
+            loginWithValidDataUser();
             header = new Header(driver);
             header.verifyChattyLogoIsDisplayed();
         }
@@ -62,7 +62,7 @@ public class LoginLogoutTests extends BaseTest {
 
         @Test
         public void testSuccessfulLogout() {
-            loginWithValidData();
+            loginWithValidDataUser();
             header = new Header(driver);
             header.verifyChattyLogoIsDisplayed();
             header.helloUsernameTab.isDisplayed();
@@ -72,7 +72,7 @@ public class LoginLogoutTests extends BaseTest {
         @Test
         public void testLoginWithValidDataMultipleTimes() {
             for (int i = 0; i < 3; i++) {
-                loginWithValidData();
+                loginWithValidDataUser();
                 header = new Header(driver);
                 header.verifyChattyLogoIsDisplayed();
                 header.logout();

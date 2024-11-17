@@ -1,17 +1,13 @@
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import pageObjects.*;
-
-import java.time.Duration;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static pageObjects.BasePage.wait;
 
-public class EditPostTests extends BaseTest {
+public class EditPostTests extends BaseTestUser {
 
     private HomeBlogPage homeBlogPage;
     private EditPage editPage;
@@ -20,7 +16,7 @@ public class EditPostTests extends BaseTest {
 
     @BeforeEach
     public void setUpTest() {
-        loginWithValidData();
+        loginWithValidDataUser();
         homeBlogPage = new HomeBlogPage(driver);
         editPage = new EditPage(driver);
         header = new Header(driver);

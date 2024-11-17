@@ -3,20 +3,19 @@ import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import pageObjects.DraftsPage;
-import pageObjects.Header;
 import pageObjects.HomeBlogPage;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static pageObjects.BasePage.wait;
 
-public class CreatePostsTests extends BaseTest {
+public class CreatePostsTests extends BaseTestUser {
 
     private HomeBlogPage homeBlogPage;
     private DraftsPage draftsPage;
 
     @BeforeEach
     public void setUpTest() {
-        loginWithValidData();
+        loginWithValidDataUser();
         homeBlogPage = new HomeBlogPage(driver);
         draftsPage = new DraftsPage(driver);
     }
