@@ -5,39 +5,41 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class EditPage extends BasePage {
+    public EditPage(WebDriver driver) {
+        super(driver);
+    }
 
-
-    @FindBy(css = "img[alt='delete button']")
+    @FindBy(xpath = "//img[@alt='delete button']")
     public WebElement deleteButton;
 
-    @FindBy(css = "img[alt='edit button']")
+    @FindBy(xpath = "//img[@alt='edit button']")
     public WebElement editButton;
 
-    @FindBy(css = "div[class='modal-content'] h2")
+    @FindBy(xpath = "//h2[normalize-space()='Edit Post']")
     public WebElement editPostPopUp;
 
-    @FindBy(css = "input[placeholder='Title']")
+    @FindBy(xpath = "//input[@placeholder='Title']")
     public WebElement editPostTitleField;
 
-    @FindBy(css = "input[placeholder='Description']")
+    @FindBy(xpath = "//input[@placeholder='Description']")
     public WebElement editPostDescriptionField;
 
-    @FindBy(name = "content")
+    @FindBy(xpath = "//textarea[@placeholder='My thoughts. No more than 1000 characters']")
     public WebElement editPostContentField;
 
-    @FindBy(css = "button[type='submit']")
+    @FindBy(xpath = "//button[normalize-space()='Submit']")
     public WebElement editPostSubmitButton;
 
-    @FindBy(css = "div[class='post-content__top'] h3")
+    @FindBy(xpath = "//h3[normalize-space()='Some post here']")
     public WebElement editedTitleField;
 
-    @FindBy(css = ".post__description")
+    @FindBy(xpath = "//p[@class='post__description']")
     public WebElement editedDescription;
 
-    @FindBy(css = ".post-content__body")
+    @FindBy(xpath = "//p[@class='post__description']")
     public WebElement editedContent;
 
-    @FindBy(css = "label[for='draftCheckbox']")
+    @FindBy(xpath = "//label[normalize-space()='Save as a draft']")
     public WebElement saveAsADraftSwitcher;
 
 
@@ -65,18 +67,20 @@ public class EditPage extends BasePage {
         editPostContentField.sendKeys(titleValue);
     }
 
-    public void clickOnDeleteButton() {deleteButton.click(); }
-    public void clickOnEditButton() {editButton.click(); }
-    public void clickOnEditPostSubmitButton() {editPostSubmitButton.click(); }
-    public void clickOnSaveAsADraftSwitcher() {saveAsADraftSwitcher.click(); }
-
-
-    public EditPage(WebDriver driver) {
-        super(driver);
+    public void clickOnDeleteButton() {
+        deleteButton.click();
+    }
+    public void clickOnEditButton() {
+        editButton.click();
+    }
+    public void clickOnEditPostSubmitButton() {
+        editPostSubmitButton.click();
+    }
+    public void clickOnSaveAsADraftSwitcher() {
+        saveAsADraftSwitcher.click();
     }
 
     public boolean isSaveAsADraftSwitcherEnabled() {
-        // Проверка состояния переключателя
         return saveAsADraftSwitcher.getAttribute("checked") != null;
     }
 }

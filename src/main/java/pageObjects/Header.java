@@ -7,8 +7,11 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class Header extends BasePage{
+    public Header(WebDriver driver) {
+        super(driver);
+    }
 
-    @FindBy(css = "img[alt='Logo']")
+    @FindBy(xpath = "//img[@alt='Logo']")
     public WebElement chattyLogo;
 
     @FindBy(xpath = "//form[@class='form']")
@@ -26,7 +29,7 @@ public class Header extends BasePage{
     @FindBy(xpath = "//div[@class='header']//p[1]")
     public WebElement helloUsernameTab;
 
-    @FindBy(css = "a[href='/login']")
+    @FindBy(xpath = "//a[normalize-space()='Logout']")
     public WebElement logOutButton;
 
     @FindBy(xpath = "//a[normalize-space()='Your Profile']")
@@ -63,8 +66,5 @@ public class Header extends BasePage{
     public void verifyChattyLogoIsDisplayed() {
         waitForVisibility(chattyLogo);
         assertElementIsDisplayed(chattyLogo);
-    }
-    public Header(WebDriver driver) {
-        super(driver);
     }
 }

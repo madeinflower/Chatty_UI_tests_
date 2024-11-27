@@ -20,7 +20,7 @@ public class RegistrationTests extends BaseTestUser {
 
 
     @Test
-        public void successRegistrationOfTheUser() {
+        public void successfulRegistrationOfTheUser() {
             loginPage.clickOnSignUpButton();
             wait.until(ExpectedConditions.visibilityOf(registrationPage.createAccountTitle));
             assertTrue(registrationPage.createAccountTitle.isDisplayed());
@@ -39,7 +39,7 @@ public class RegistrationTests extends BaseTestUser {
     }
 
     @Test
-    public void successRegistrationOfTheAdmin() {
+    public void successfulRegistrationOfTheAdmin() {
         loginPage.clickOnSignUpButton();
         wait.until(ExpectedConditions.visibilityOf(registrationPage.createAccountTitle));
         assertTrue(registrationPage.createAccountTitle.isDisplayed());

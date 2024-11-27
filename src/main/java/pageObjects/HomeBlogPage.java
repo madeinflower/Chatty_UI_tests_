@@ -6,71 +6,47 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class HomeBlogPage extends BasePage {
+    public HomeBlogPage (WebDriver driver) {
+        super(driver);
+    }
 
-    @FindBy(css = "span[data-test='post-header__plus']")
+    @FindBy(xpath = "//span[@data-test='post-header__plus']")
     public WebElement createPostButton;
-
-    @FindBy(css = "input[placeholder='Title']")
+    @FindBy(xpath = "//input[@placeholder='Title']")
     public WebElement titleInputField;
-
-    @FindBy(css = "input[placeholder='Description']")
+    @FindBy(xpath = "//input[@placeholder='Description']")
     public WebElement descriptionInputField;
-
-    @FindBy(name = "content")
+    @FindBy(xpath = "//textarea[@placeholder='My thoughts. No more than 1000 characters']")
     public WebElement contentInputField;
-
-    @FindBy(css = ".post_uploaded_image__7qSWV")
+    @FindBy(xpath = "//div[@class='post_uploaded_image__7qSWV']")
     public WebElement uploadImageField;
-
     @FindBy(xpath = "//input[@id='publishDate']")
     public WebElement publishDateField;
-
-    @FindBy(css = "label[for='draftCheckbox']")
+    @FindBy(xpath = "//label[normalize-space()='Save as a draft']")
     public WebElement saveAsDraftSwitcher;
-
-    @FindBy(css = "button[type='submit']")
+    @FindBy(xpath = "//button[normalize-space()='Submit']")
     public WebElement submitButton;
-
-    @FindBy(css = "body > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > form:nth-child(1) > div:nth-child(1) > p:nth-child(2)")
+    @FindBy(xpath = "//*[@id=\"root\"]/div[2]/div[2]/div/form/div[1]/p")
     public WebElement errorTitleMessage;
 
-    @FindBy(css = "body > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > form:nth-child(1) > div:nth-child(2) > p:nth-child(2)")
+    @FindBy(xpath = "//*[@id=\"root\"]/div[2]/div[2]/div/form/div[2]/p")
     public WebElement errorDescriptionMessage;
-
-    @FindBy(css = "body > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > form:nth-child(1) > div:nth-child(3) > p:nth-child(2)")
+    @FindBy(xpath = "//*[@id=\"root\"]/div[2]/div[2]/div/form/div[3]/p")
     public WebElement errorContentMessage;
-
     @FindBy(xpath = "//p[normalize-space()='Please fill all fields']")
     public WebElement errorAllFieldsEmptyMessage;
-
-    @FindBy(className = "post-content__top")
+    @FindBy(xpath = "//div[@id='root']//div[2]//h3")
     public WebElement firstPostTitle;
-
-    @FindBy(className = "post__description")
+    @FindBy(xpath = "//div[@id='root']//div[2]//p")
     public WebElement firstPostDescription;
-
-    @FindBy(className = "post-content__top")
-    public WebElement createdPostTitleField;
-
-    @FindBy(className = "post")
+    @FindBy(xpath = "//div[@id='root']//div[@class='posts__section']/div[1]")
     public WebElement firstPostFrame;
-
-    @FindBy(css = "label[for='myPostsId']")
+    @FindBy(xpath = "//label[normalize-space()='My Posts']")
     public WebElement myPostsSwitcher;
-
     @FindBy(css = "a[class='menu-item '] span")
     public WebElement myDraftsOption;
-
-    @FindBy(css = "label[for='draftCheckbox']n")
+    @FindBy(xpath = "//label[normalize-space()='Save as a draft']")
     public WebElement saveAsADraftSwitcher;
-
-
-
-//    private SelenideElement firstPostTitle = $(byClassName("post-content__top"));
-//    private SelenideElement firstPostDescription = $(byClassName("post__description"));
-//    private SelenideElement createdPostTitleField = $(byClassName("post-content__top"));
-
-
 
     public void enterTitle(String titleValue) {
         titleInputField.sendKeys(titleValue);
@@ -99,12 +75,11 @@ public class HomeBlogPage extends BasePage {
         myDraftsOption.click();
     }
 
-    public void clickOnMyPostSwitcher() {myPostsSwitcher.click(); }
-
-    public void clickOnSaveAsADraftSwitcher() {saveAsADraftSwitcher.click(); }
-
-
-    public HomeBlogPage (WebDriver driver) {
-        super(driver);
+    public void clickOnMyPostSwitcher() {
+        myPostsSwitcher.click();
     }
+    public void clickOnSaveAsADraftSwitcher() {
+        saveAsADraftSwitcher.click();
+    }
+
 }

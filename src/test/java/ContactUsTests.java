@@ -30,6 +30,7 @@ public class ContactUsTests extends BaseTestUser {
         contactUsPage.enterMessage("Some message here");
         contactUsPage.clickOnSendMessageButton();
         wait.until(ExpectedConditions.textToBePresentInElement(contactUsPage.feedbackSubmittedMessage, "Feedback submitted successfully!"));
+        assertTrue(contactUsPage.feedbackSubmittedMessage.isDisplayed());
     }
 
         @Test
@@ -44,10 +45,10 @@ public class ContactUsTests extends BaseTestUser {
         contactUsPage.enterMessage("Some message here");
         contactUsPage.clickOnSendMessageButton();
         wait.until(ExpectedConditions.textToBePresentInElement(contactUsPage.invalidEmailFormatMessage, "Invalid email format"));
+        assertTrue(contactUsPage.invalidEmailFormatMessage.isDisplayed());
     }
 
         @Test
-        @Disabled // Не могу поймать локатор окошка Заполните Это поле
         public void submitFeedbackWithInvalidEmailFormat() {
         wait.until(ExpectedConditions.visibilityOf(header.contactTab));
         header.hoverOverContactTab();
@@ -58,7 +59,10 @@ public class ContactUsTests extends BaseTestUser {
         contactUsPage.enterEmail("");
         contactUsPage.enterMessage("");
         contactUsPage.clickOnSendMessageButton();
-
+            String validationMessage = contactUsPage.nameField.getAttribute("validationMessage");
+            String expectedMessage = "Please fill out this field";
+            assertTrue(validationMessage.contains(expectedMessage),
+                    "Expected message: " + expectedMessage + ", but was: " + validationMessage);
     }
 
 

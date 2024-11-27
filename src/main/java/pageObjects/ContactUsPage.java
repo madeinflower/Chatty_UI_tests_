@@ -5,8 +5,10 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class ContactUsPage extends BasePage{
-
-    @FindBy(css = "div[class='contact-box'] h1")
+    public ContactUsPage(WebDriver driver) {
+        super(driver);
+    }
+    @FindBy(xpath = "//h1[normalize-space()='Contact Us']")
     public WebElement contactUsElement;
 
     @FindBy(xpath = "//input[@id='name']")
@@ -15,11 +17,10 @@ public class ContactUsPage extends BasePage{
     @FindBy(xpath = "//input[@id='email']")
     public WebElement emailField;
 
-
     @FindBy(xpath = "//textarea[@id='content']")
     public WebElement messageField;
 
-    @FindBy(css = "button[type='submit']")
+    @FindBy(xpath = "//button[normalize-space()='Send Message']")
     public WebElement sendMessageButton;
 
     @FindBy(xpath = "//div[@class='success-message']")
@@ -41,8 +42,4 @@ public class ContactUsPage extends BasePage{
     public void clickOnSendMessageButton() {
         sendMessageButton.click(); }
 
-
-    public ContactUsPage(WebDriver driver) {
-        super(driver);
-    }
 }
