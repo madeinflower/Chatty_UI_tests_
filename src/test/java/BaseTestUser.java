@@ -7,12 +7,9 @@ import pageObjects.LoginPage;
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
 public abstract class BaseTestUser {
     protected WebDriver driver;
     protected LoginPage loginPage;
-
 
     @BeforeEach
     public void setUp() {
@@ -30,10 +27,10 @@ public abstract class BaseTestUser {
 
     public String generateRandomName(int maxLength) {
         Random random = new Random();
-        int length = random.nextInt(maxLength) + 3;  // Генерация длины имени от 3 до maxLength
+        int length = random.nextInt(maxLength) + 3;
         StringBuilder name = new StringBuilder(length);
         for (int i = 0; i < length; i++) {
-            char letter = (char) ('a' + random.nextInt(26));  // Генерация случайной буквы от 'a' до 'z'
+            char letter = (char) ('a' + random.nextInt(26));
             name.append(letter);
         }
         return name.toString();
@@ -41,17 +38,16 @@ public abstract class BaseTestUser {
 
     public String generateRandomSurname(int maxLength) {
         Random random = new Random();
-        int length = random.nextInt(maxLength) + 3;  // Генерация длины фамилии от 3 до maxLength
+        int length = random.nextInt(maxLength) + 3;
         StringBuilder surname = new StringBuilder(length);
         for (int i = 0; i < length; i++) {
-            char letter = (char) ('a' + random.nextInt(26));  // Генерация случайной буквы от 'a' до 'z'
+            char letter = (char) ('a' + random.nextInt(26));
             surname.append(letter);
         }
         return surname.toString();
     }
 
     public String generateRandomPhoneNumber() {
-        // Генерация случайного номера телефона в пределах от 10000000000 до 99999999999
         long randomNumber = ThreadLocalRandom.current().nextLong(10000000000L, 100000000000L);
         return String.valueOf(randomNumber);
     }

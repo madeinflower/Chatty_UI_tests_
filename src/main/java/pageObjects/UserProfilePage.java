@@ -7,82 +7,62 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 
 public class UserProfilePage extends BasePage {
+    public UserProfilePage(WebDriver driver) {
+        super(driver);
+    }
 
-    public WebElement avatarUploadInput;
-    private Header header;
-    private LoginPage loginPage;
+    protected Header header;
 
     @FindBy(xpath = "//p[@data-test='profileEmail']")
     public WebElement profileEmailIcon;
-
-    @FindBy(css = "input[placeholder='Name']")
+    @FindBy(xpath = "//input[@placeholder='Name']")
     public WebElement nameField;
-
-    @FindBy(css = "input[placeholder='Surname']")
+    @FindBy(xpath = "//input[@placeholder='Surname']")
     public WebElement surnameField;
-
     @FindBy(xpath = "//select[@id='gender']")
     public WebElement genderField;
-
     @FindBy(xpath = "//input[@id='birthDate']")
     public WebElement birthdateField;
-
-    @FindBy(css = "input[placeholder='+123456789012']")
+    @FindBy(xpath = "//input[@placeholder='+123456789012']")
     public WebElement phoneField;
-
-    @FindBy(css = "button[name='password']")
+    @FindBy(xpath = "//button[normalize-space()='Change password']")
     public WebElement passwordField;
-
-    @FindBy(css = "button[type='submit']")
+    @FindBy(xpath = "//button[normalize-space()='Save']")
     public WebElement saveButton;
 
-    @FindBy(css = "span[data-test='post-header__plus']")
+    @FindBy(xpath = "//span[@data-test='post-header__plus']")
     public WebElement editPlusButton;
-
-    @FindBy(css = ".post-header__plus-box")
+    @FindBy(xpath = "//span[@data-test='post-header__plus']")
     public WebElement editCancelElement;
-
     @FindBy(css = ".PasswordModal_passParagraph__feEN9")
     public WebElement passwordChangingPopUp;
-
-    @FindBy(css = "input[placeholder='Old password']")
+    @FindBy(xpath = "//input[@placeholder='Old password']")
     public WebElement oldPasswordField;
-
-    @FindBy(css = "input[placeholder='New password']")
+    @FindBy(xpath = "//input[@placeholder='New password']")
     public WebElement newPasswordField;
-
-    @FindBy(css = "input[placeholder='Confirm new password']")
+    @FindBy(xpath = "//input[@placeholder='Confirm new password']")
     public WebElement confirmNewPasswordField;
-
-    @FindBy(css = ".PasswordModal_pass_btn__eGL9h")
+    @FindBy(xpath = "//button[@class='PasswordModal_pass_btn__eGL9h']")
     public WebElement passwordChangingPopUpSaveButton;
-
-    @FindBy(css = "img[alt='Uploaded']")
+    @FindBy(xpath = "//img[@alt='Uploaded']")
     public WebElement avatarOfTheUser;
 
-    public UserProfilePage(WebDriver driver) {
-        super(driver);
-
-    }
-
     public String getCurrentGenderOption() {
-        Select genderSelect = new Select(genderField);  // Создаем объект Select для выпадающего списка
-        return genderSelect.getFirstSelectedOption().getText();  // Возвращаем текст текущей выбранной опции
+        Select genderSelect = new Select(genderField);
+        return genderSelect.getFirstSelectedOption().getText();
     }
-
-
-    public void selectGenderOption(String gender) {
-        Select genderSelect = new Select(genderField);  // Создаем объект Select для выпадающего списка
-        genderSelect.selectByVisibleText(gender);  // Выбираем опцию по видимому тексту
+    public void selectGenderOption (String gender) {
+        Select genderSelect = new Select(genderField);
+        genderSelect.selectByVisibleText(gender);
     }
-
     public String getAvatarSrc() {
         return avatarOfTheUser.getAttribute("src");
     }
-
     public void verifyProfileEmailIconIsDisplayed() {
         waitForVisibility(profileEmailIcon);
         assertElementIsDisplayed(profileEmailIcon);
     }
-
+    public void clickOnYourProfileButton() {
+        header.yourProfileButton.click();
+    }
 }

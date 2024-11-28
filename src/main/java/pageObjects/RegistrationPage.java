@@ -8,45 +8,33 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 
 import java.util.Random;
-
 public class RegistrationPage extends BasePage {
+    public RegistrationPage(WebDriver driver) {
+        super(driver);
+    }
 
-    @FindBy(css = "form[class='form'] h1")
+    @FindBy(xpath = "//h1[normalize-space()='Create Account']")
     public WebElement createAccountTitle;
-
-    @FindBy(css = "a[href='/login']")
-    public WebElement loginButton;
-
-    @FindBy(css = "input[placeholder='Email']")
+    @FindBy(xpath = "//input[@placeholder='Email']")
     public WebElement emailInputField;
-
-    @FindBy(css = "input[placeholder='Password']")
+    @FindBy(xpath = "//input[@placeholder='Password']")
     public WebElement passwordInputField;
-
-    @FindBy(css = "input[placeholder='Confirm password']")
+    @FindBy(xpath = "//input[@placeholder='Confirm password']")
     public WebElement confirmPasswordField;
-
-    @FindBy(css = "button[type='submit']")
+    @FindBy(xpath = "//button[normalize-space()='Registration']")
     public WebElement registrationButton;
-
-    @FindBy(css = "form[class='form'] select")
+    @FindBy(xpath = "//form[@class='form']//select")
     public WebElement dropDownMenuUserAdmin;
-
     @FindBy(xpath = "//div[normalize-space()='Password must be 8-100 characters and include at least one letter and one digit']")
     public WebElement passwordFieldErrorMessage;
-
-    @FindBy(css = "a[href='/contact']")
+    @FindBy(xpath = "//a[normalize-space()='Contact us']")
     public WebElement contactUsOption;
-
-    @FindBy(css = "a[href='/about']")
+    @FindBy(xpath = "//a[normalize-space()='About us']")
     public WebElement aboutUsOption;
-
     @FindBy(xpath = "//div[normalize-space()='Email cannot be empty']")
     public WebElement emailInputFieldErrorMessage;
-
     @FindBy(xpath = "//div[normalize-space()='Confirm password cannot be empty']")
     public WebElement confirmPasswordInputFieldErrorMessage;
-
 
     public void enterEmailField(String email) {
         emailInputField.clear();
@@ -71,7 +59,6 @@ public class RegistrationPage extends BasePage {
         dropDownMenuUserAdmin.click();
     }
 
-
     public String generateRandomEmail(int minLength, int maxLength) {
         Random random = new Random();
         int length = random.nextInt(maxLength - minLength + 1) + minLength;
@@ -85,7 +72,6 @@ public class RegistrationPage extends BasePage {
 
         return email + "@gmail.com";
     }
-
     public String generateRandomPassword(int length) {
         Random random = new Random();
         StringBuilder password = new StringBuilder();
@@ -98,18 +84,9 @@ public class RegistrationPage extends BasePage {
 
         return password.toString();
     }
-
     public void selectUserRole(String role) {
         WebElement dropdownElement = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("form[class='form'] select")));
         Select dropdown = new Select(dropdownElement);
         dropdown.selectByVisibleText(role);
-    }
-
-
-
-
-
-    public RegistrationPage(WebDriver driver) {
-        super(driver);
     }
 }

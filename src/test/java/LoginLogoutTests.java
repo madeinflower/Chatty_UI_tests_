@@ -18,29 +18,26 @@ public class LoginLogoutTests extends BaseTestUser {
             header.verifyChattyLogoIsDisplayed();
         }
 
-        @Test // возможно бага в требованиях?
+        @Test
         public void testLoginWithEmptyEmailField() {
+            loginPage = new LoginPage(driver);
             loginPage.inputPassword("Qwerty12345");
             assertFalse(loginPage.loginButton.isEnabled());
-    }
-    // public void emptyUsernameField() {
-    //        loginPage.enterUsername("");
-    //        loginPage.enterPassword("Qwerty12345");
-    //        loginPage.clickOnLoginButton();
-    //        loginPage.getErrorMessage().shouldBe(visible).shouldHave(text("Invalid email or password. Please try again."));
-    //    }
+        }
 
         @Test
         public void testLoginWithEmptyPasswordField() {
+            loginPage = new LoginPage(driver);
             loginPage.inputEmail("tatsenko.tetiana@gmail.com");
             loginPage.submitForm();
             wait.until(ExpectedConditions.visibilityOf(loginPage.errorMessage));
             assertTrue(loginPage.errorMessage.isDisplayed());
-    }
+        }
 
-        @Test // возможно бага в реализации?
+        @Test
         public void testLoginWithEmptyAllFields() {
-        assertFalse(loginPage.loginButton.isEnabled());
+            loginPage = new LoginPage(driver);
+            assertFalse(loginPage.loginButton.isEnabled());
     }
 
         @Test
@@ -78,24 +75,4 @@ public class LoginLogoutTests extends BaseTestUser {
                 header.logout();
         }
     }
-//    public void testLoginWithValidDataMultipleTimes() {
-//        // Первая попытка входа и выхода
-//        header = loginPage.loginWithValidData("tatsenko.tetiana@gmail.com", "Qwerty12345");
-//        wait.until(ExpectedConditions.visibilityOf(header.chattyLogo));
-//        assertTrue(header.chattyLogo.isDisplayed());
-//        header.logout();
-//
-//        // Вторая попытка входа и выхода
-//        header = loginPage.loginWithValidData("tatsenko.tetiana@gmail.com", "Qwerty12345");
-//        wait.until(ExpectedConditions.visibilityOf(header.chattyLogo));
-//        assertTrue(header.chattyLogo.isDisplayed());
-//        header.logout();
-//
-//        // Третья попытка входа
-//        header = loginPage.loginWithValidData("tatsenko.tetiana@gmail.com", "Qwerty12345");
-//        wait.until(ExpectedConditions.visibilityOf(header.chattyLogo));
-//        assertTrue(header.chattyLogo.isDisplayed());
-//    }
-
-
 }
