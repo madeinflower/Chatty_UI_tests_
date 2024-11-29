@@ -60,6 +60,4 @@ public class DeletePostTests extends BaseTestUser {
         String firstDraftTitleAfterDeletion = homeBlogPage.firstPostFrame.getText();
         assertNotEquals(firstDraftTitleBeforeDeletion, firstDraftTitleAfterDeletion, "Other post should be seen after deletion");
     }
-
-
 }

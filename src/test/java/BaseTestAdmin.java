@@ -9,7 +9,6 @@ public class BaseTestAdmin {
     protected WebDriver driver;
     protected LoginPage loginPage;
 
-
     @BeforeEach
     public void setUp() {
         driver = new ChromeDriver();

@@ -33,8 +33,8 @@ public class CreatePostsTests extends BaseTestUser {
         homeBlogPage.enterDescription(randomDescription);
         homeBlogPage.enterContent(randomContent);
         homeBlogPage.clickOnSubmitButton();
-        wait.until(ExpectedConditions.visibilityOf(homeBlogPage.firstPostTitle)); // тут надо дописать, что мы видим именно тот пост, который мы сделали!!!
         wait.until(ExpectedConditions.visibilityOf(homeBlogPage.firstPostDescription)); // тут надо дописать, что мы видим именно тот пост, который мы сделали!!!
+        assertTrue(homeBlogPage.firstPostDescription.isDisplayed());
     }
 
     @Test
@@ -47,7 +47,6 @@ public class CreatePostsTests extends BaseTestUser {
         homeBlogPage.enterDescription("SomeDescriptionHere");
         homeBlogPage.enterContent("SomeContentHere");
         homeBlogPage.clickOnSubmitButton();
-        //wait.until(ExpectedConditions.visibilityOf(homeBlogPage.errorTitleMessage));
         wait.until(ExpectedConditions.textToBePresentInElement(homeBlogPage.errorTitleMessage, "Please fill the field"));
         assertTrue(homeBlogPage.errorTitleMessage.isDisplayed());
     }
@@ -62,7 +61,6 @@ public class CreatePostsTests extends BaseTestUser {
         homeBlogPage.enterDescription("");
         homeBlogPage.enterContent("SomeContentHere");
         homeBlogPage.clickOnSubmitButton();
-        //wait.until(ExpectedConditions.visibilityOf(homeBlogPage.errorTitleMessage));
         wait.until(ExpectedConditions.textToBePresentInElement(homeBlogPage.errorDescriptionMessage, "Please fill the field"));
         assertTrue(homeBlogPage.errorDescriptionMessage.isDisplayed());
     }
@@ -77,7 +75,6 @@ public class CreatePostsTests extends BaseTestUser {
         homeBlogPage.enterDescription("SomeDescriptionHere");
         homeBlogPage.enterContent("");
         homeBlogPage.clickOnSubmitButton();
-        //wait.until(ExpectedConditions.visibilityOf(homeBlogPage.errorTitleMessage));
         wait.until(ExpectedConditions.textToBePresentInElement(homeBlogPage.errorContentMessage, "Please fill the field"));
         assertTrue(homeBlogPage.errorContentMessage.isDisplayed());
     }
@@ -92,7 +89,6 @@ public class CreatePostsTests extends BaseTestUser {
         homeBlogPage.enterDescription("");
         homeBlogPage.enterContent("");
         homeBlogPage.clickOnSubmitButton();
-        //wait.until(ExpectedConditions.visibilityOf(homeBlogPage.errorTitleMessage));
         wait.until(ExpectedConditions.textToBePresentInElement(homeBlogPage.errorAllFieldsEmptyMessage, "Please fill all fields"));
         assertTrue(homeBlogPage.errorAllFieldsEmptyMessage.isDisplayed());
     }
@@ -164,9 +160,7 @@ public class CreatePostsTests extends BaseTestUser {
         homeBlogPage.clickOnSaveAsDraftSwitcher();
         homeBlogPage.clickOnSubmitButton();
         homeBlogPage.clickOnMyDraftsOption();
-        //wait.until(ExpectedConditions.textToBePresentInElement(draftsPage.draftTitle, randomTitle)); - та же проблема, что и в первом тесте
         wait.until(ExpectedConditions.visibilityOf(draftsPage.draftTitle));
         assertTrue(draftsPage.draftTitle.isDisplayed());
     }
-
 }

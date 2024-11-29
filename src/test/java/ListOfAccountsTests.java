@@ -27,6 +27,7 @@ public class ListOfAccountsTests extends BaseTestAdmin {
         wait.until(ExpectedConditions.visibilityOf(usersPage.userName));
         wait.until(ExpectedConditions.visibilityOf(usersPage.editUserButton));
         wait.until(ExpectedConditions.visibilityOf(usersPage.deleteUserButton));
+        assertTrue(usersPage.deleteUserButton.isDisplayed());
     }
 
     @Test
@@ -73,7 +74,6 @@ public class ListOfAccountsTests extends BaseTestAdmin {
         wait.until(ExpectedConditions.textToBePresentInElement(usersPage.adminPanelElement, "Admin panel"));
         assertTrue(usersPage.adminPanelElement.isDisplayed());
         usersPage.clickOnDeleteUserButton();
-
     }
 
     @Test
@@ -82,6 +82,4 @@ public class ListOfAccountsTests extends BaseTestAdmin {
         assertTrue(usersPage.adminPanelElement.isDisplayed());
         usersPage.clickOnLoadMoreButton();
     }
-
-
 }

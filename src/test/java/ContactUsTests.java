@@ -59,13 +59,10 @@ public class ContactUsTests extends BaseTestUser {
         contactUsPage.enterEmail("");
         contactUsPage.enterMessage("");
         contactUsPage.clickOnSendMessageButton();
-            String validationMessage = contactUsPage.nameField.getAttribute("validationMessage");
-            String expectedMessage = "Please fill out this field";
-            assertTrue(validationMessage.contains(expectedMessage),
-                    "Expected message: " + expectedMessage + ", but was: " + validationMessage);
+        String validationMessage = contactUsPage.nameField.getAttribute("validationMessage");
+        String expectedMessage = "Please fill out this field";
+        assertTrue(validationMessage.contains(expectedMessage), "Expected message: " + expectedMessage + ", but was: " + validationMessage);
     }
-
-
 }
 
 

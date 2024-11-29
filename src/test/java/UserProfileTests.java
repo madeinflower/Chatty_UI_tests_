@@ -13,7 +13,6 @@ public class UserProfileTests extends BaseTestUser {
     private Header header;
     private UserProfilePage userProfilePage;
 
-
     @BeforeEach
     public void setUpTest() {
         loginWithValidDataUser();

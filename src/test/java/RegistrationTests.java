@@ -21,21 +21,20 @@ public class RegistrationTests extends BaseTestUser {
 
     @Test
         public void successfulRegistrationOfTheUser() {
-            loginPage.clickOnSignUpButton();
-            wait.until(ExpectedConditions.visibilityOf(registrationPage.createAccountTitle));
-            assertTrue(registrationPage.createAccountTitle.isDisplayed());
+        loginPage.clickOnSignUpButton();
+        wait.until(ExpectedConditions.visibilityOf(registrationPage.createAccountTitle));
+        assertTrue(registrationPage.createAccountTitle.isDisplayed());
 
-            String randomEmail = registrationPage.generateRandomEmail(3, 30);
-            String randomPassword = registrationPage.generateRandomPassword(20);
-            registrationPage.enterEmailField(randomEmail);
-            registrationPage.enterPasswordField(randomPassword);
-            registrationPage.enterConfirmPasswordField(randomPassword);
-            registrationPage.clickOndropDownMenuUserAdmin();
+        String randomEmail = registrationPage.generateRandomEmail(3, 30);
+        String randomPassword = registrationPage.generateRandomPassword(20);
+        registrationPage.enterEmailField(randomEmail);
+        registrationPage.enterPasswordField(randomPassword);
+        registrationPage.enterConfirmPasswordField(randomPassword);
+        registrationPage.clickOndropDownMenuUserAdmin();
 
-            registrationPage.selectUserRole("User");
+        registrationPage.selectUserRole("User");
 
-            registrationPage.clickOnRegistrationButton();
-            header.verifyChattyLogoIsDisplayed();
+        registrationPage.clickOnRegistrationButton();header.verifyChattyLogoIsDisplayed();
     }
 
     @Test

@@ -85,7 +85,4 @@ public class EditPostTests extends BaseTestUser {
         wait.until(ExpectedConditions.textToBePresentInElement(draftsPage.draftTitle, "Some title here"));
         assertTrue(draftsPage.draftTitle.isDisplayed());
     }
-
-
-
 }

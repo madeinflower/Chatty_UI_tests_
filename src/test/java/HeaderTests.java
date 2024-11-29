@@ -9,8 +9,8 @@ public class HeaderTests extends BaseTestUser {
 
     @BeforeEach
     public void setUpTest() {
-        loginWithValidDataUser();  // Вынесенный метод логина
-        header = new Header(driver);  // Инициализация заголовка
+        loginWithValidDataUser();
+        header = new Header(driver);
     }
 
     @Test
@@ -33,7 +33,6 @@ public class HeaderTests extends BaseTestUser {
         header.hoverOverContactTab();
         header.assertElementIsDisplayed(header.chattyLogo);
     }
-
 
     @Test
     public void accessToProfileNavigationOptionsUsingHelloUserNameTab() {
