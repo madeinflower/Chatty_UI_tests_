@@ -57,28 +57,22 @@ public class HomeBlogPage extends BasePage {
         contentInputField.sendKeys(contentValue);
     }
 
-
     public void clickOnCreatePostButton() {
         createPostButton.click();
     }
-
     public void clickOnSubmitButton() {
         submitButton.click();
     }
-
     public void clickOnSaveAsDraftSwitcher() {
         saveAsDraftSwitcher.click();
     }
-
     public void clickOnMyDraftsOption() {
         myDraftsOption.click();
     }
-
     public void clickOnMyPostSwitcher() {
         myPostsSwitcher.click();
     }
     public void clickOnSaveAsADraftSwitcher() {
         saveAsADraftSwitcher.click();
     }
-
 }

@@ -34,9 +34,9 @@ public class EditPostTests extends BaseTestUser {
         editPage.clickOnEditButton();
         wait.until(ExpectedConditions.visibilityOf(editPage.editPostPopUp));
         assertTrue(editPage.editPostPopUp.isDisplayed());
-        String randomTitle = generateRandomString(30);
-        String randomDescription = generateRandomString(70);
-        String randomContent = generateRandomString(500);
+        String randomTitle = getRandomString(30);
+        String randomDescription = getRandomString(70);
+        String randomContent = getRandomString(500);
         editPage.clearEditTitle();
         editPage.clearEditDescription();
         editPage.clearEditContent();
@@ -60,9 +60,9 @@ public class EditPostTests extends BaseTestUser {
         editPage.clickOnEditButton();
         wait.until(ExpectedConditions.visibilityOf(editPage.editPostPopUp));
         assertTrue(editPage.editPostPopUp.isDisplayed());
-        String randomTitle = generateRandomString(30);
-        String randomDescription = generateRandomString(70);
-        String randomContent = generateRandomString(500);
+        String randomTitle = getRandomString(30);
+        String randomDescription = getRandomString(70);
+        String randomContent = getRandomString(500);
         editPage.clearEditTitle();
         editPage.clearEditDescription();
         editPage.clearEditContent();

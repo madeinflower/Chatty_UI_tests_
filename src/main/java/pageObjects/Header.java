@@ -10,31 +10,22 @@ public class Header extends BasePage{
     public Header(WebDriver driver) {
         super(driver);
     }
-
     @FindBy(xpath = "//img[@alt='Logo']")
     public WebElement chattyLogo;
-
     @FindBy(xpath = "//form[@class='form']")
     public WebElement loginForm;
-
     @FindBy(xpath = "//a[normalize-space()='Home']")
     public WebElement homeTab;
-
     @FindBy(xpath = "//a[normalize-space()='About']")
     public WebElement aboutTab;
-
     @FindBy(xpath = "//a[normalize-space()='Contact']")
     public WebElement contactTab;
-
     @FindBy(xpath = "//div[@class='header']//p[1]")
     public WebElement helloUsernameTab;
-
     @FindBy(xpath = "//a[normalize-space()='Logout']")
     public WebElement logOutButton;
-
     @FindBy(xpath = "//a[normalize-space()='Your Profile']")
     public WebElement yourProfileButton;
-
     @FindBy(xpath = "//a[normalize-space()='My Drafts']")
     public WebElement myDraftsButton;
 
@@ -50,15 +41,12 @@ public class Header extends BasePage{
     public void hoverOverHomeTab() {
         new Actions(driver).moveToElement(homeTab).perform();
     }
-
     public void hoverOverAboutTab() {
         new Actions(driver).moveToElement(aboutTab).perform();
     }
-
     public void hoverOverContactTab() {
         new Actions(driver).moveToElement(contactTab).perform();
     }
-
     public void hoverOverHelloUsernameTab() {
         new Actions(driver).moveToElement(helloUsernameTab).perform();
     }

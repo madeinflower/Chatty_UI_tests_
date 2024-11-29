@@ -8,9 +8,6 @@ public class DraftsPage extends BasePage{
     public DraftsPage (WebDriver driver) {
         super(driver);
     }
-
     @FindBy(xpath = "//div[@id='root']//p[1]")
     public WebElement draftTitle;
-
-
 }

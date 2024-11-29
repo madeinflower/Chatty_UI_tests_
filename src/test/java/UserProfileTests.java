@@ -29,7 +29,7 @@ public class UserProfileTests extends BaseTestUser {
         userProfilePage.verifyProfileEmailIconIsDisplayed();
         userProfilePage.editPlusButton.click();
         userProfilePage.nameField.clear();
-        String randomName = generateRandomName(15);
+        String randomName = getRandomName(15);
         userProfilePage.nameField.sendKeys(randomName);
         userProfilePage.saveButton.click();
         wait.until(ExpectedConditions.visibilityOf(userProfilePage.editPlusButton));
@@ -44,7 +44,7 @@ public class UserProfileTests extends BaseTestUser {
         userProfilePage.verifyProfileEmailIconIsDisplayed();
         userProfilePage.editPlusButton.click();
         userProfilePage.surnameField.clear();
-        String randomSurname = generateRandomSurname(15);
+        String randomSurname = getRandomSurname(15);
         userProfilePage.surnameField.sendKeys(randomSurname);
         userProfilePage.saveButton.click();
         wait.until(ExpectedConditions.visibilityOf(userProfilePage.editPlusButton));
@@ -96,7 +96,7 @@ public class UserProfileTests extends BaseTestUser {
         userProfilePage.verifyProfileEmailIconIsDisplayed();
         userProfilePage.editPlusButton.click();
         userProfilePage.phoneField.clear();
-        String randomPhoneNumber = generateRandomPhoneNumber();
+        String randomPhoneNumber = getRandomPhoneNumber();
         userProfilePage.surnameField.sendKeys(randomPhoneNumber);
         userProfilePage.saveButton.click();
         wait.until(ExpectedConditions.visibilityOf(userProfilePage.editPlusButton));
