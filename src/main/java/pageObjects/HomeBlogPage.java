@@ -10,42 +10,113 @@ public class HomeBlogPage extends BasePage {
     }
 
     @FindBy(xpath = "//span[@data-test='post-header__plus']")
-    public WebElement createPostButton;
+    private WebElement createPostButton;
     @FindBy(xpath = "//input[@placeholder='Title']")
-    public WebElement titleInputField;
+    private WebElement titleInputField;
     @FindBy(xpath = "//input[@placeholder='Description']")
-    public WebElement descriptionInputField;
+    private WebElement descriptionInputField;
     @FindBy(xpath = "//textarea[@placeholder='My thoughts. No more than 1000 characters']")
-    public WebElement contentInputField;
+    private WebElement contentInputField;
     @FindBy(xpath = "//div[@class='post_uploaded_image__7qSWV']")
-    public WebElement uploadImageField;
+    private WebElement uploadImageField;
     @FindBy(xpath = "//input[@id='publishDate']")
-    public WebElement publishDateField;
+    private WebElement publishDateField;
     @FindBy(xpath = "//label[normalize-space()='Save as a draft']")
-    public WebElement saveAsDraftSwitcher;
+    private WebElement saveAsDraftSwitcher;
     @FindBy(xpath = "//button[normalize-space()='Submit']")
-    public WebElement submitButton;
+    private WebElement submitButton;
     @FindBy(xpath = "//*[@id=\"root\"]/div[2]/div[2]/div/form/div[1]/p")
-    public WebElement errorTitleMessage;
-
+    private WebElement errorTitleMessage;
     @FindBy(xpath = "//*[@id=\"root\"]/div[2]/div[2]/div/form/div[2]/p")
-    public WebElement errorDescriptionMessage;
+    private WebElement errorDescriptionMessage;
     @FindBy(xpath = "//*[@id=\"root\"]/div[2]/div[2]/div/form/div[3]/p")
-    public WebElement errorContentMessage;
+    private WebElement errorContentMessage;
     @FindBy(xpath = "//p[normalize-space()='Please fill all fields']")
-    public WebElement errorAllFieldsEmptyMessage;
+    private WebElement errorAllFieldsEmptyMessage;
     @FindBy(xpath = "//div[@id='root']//div[2]//h3")
-    public WebElement firstPostTitle;
+    private WebElement firstPostTitle;
     @FindBy(xpath = "//div[@id='root']//div[2]//p")
-    public WebElement firstPostDescription;
+    private WebElement firstPostDescription;
     @FindBy(xpath = "//div[@id='root']//div[@class='posts__section']/div[1]")
-    public WebElement firstPostFrame;
+    private WebElement firstPostFrame;
     @FindBy(xpath = "//label[normalize-space()='My Posts']")
-    public WebElement myPostsSwitcher;
+    private WebElement myPostsSwitcher;
     @FindBy(css = "a[class='menu-item '] span")
-    public WebElement myDraftsOption;
+    private WebElement myDraftsOption;
     @FindBy(xpath = "//label[normalize-space()='Save as a draft']")
-    public WebElement saveAsADraftSwitcher;
+    private WebElement saveAsADraftSwitcher;
+
+    public WebElement getCreatePostButton() {
+        return createPostButton;
+    }
+
+    public WebElement getTitleInputField() {
+        return titleInputField;
+    }
+
+    public WebElement getDescriptionInputField() {
+        return descriptionInputField;
+    }
+
+    public WebElement getContentInputField() {
+        return contentInputField;
+    }
+
+    public WebElement getUploadImageField() {
+        return uploadImageField;
+    }
+
+    public WebElement getPublishDateField() {
+        return publishDateField;
+    }
+
+    public WebElement getSaveAsDraftSwitcher() {
+        return saveAsDraftSwitcher;
+    }
+
+    public WebElement getSubmitButton() {
+        return submitButton;
+    }
+
+    public WebElement getErrorTitleMessage() {
+        return errorTitleMessage;
+    }
+
+    public WebElement getErrorDescriptionMessage() {
+        return errorDescriptionMessage;
+    }
+
+    public WebElement getErrorContentMessage() {
+        return errorContentMessage;
+    }
+
+    public WebElement getErrorAllFieldsEmptyMessage() {
+        return errorAllFieldsEmptyMessage;
+    }
+
+    public WebElement getFirstPostTitle() {
+        return firstPostTitle;
+    }
+
+    public WebElement getFirstPostDescription() {
+        return firstPostDescription;
+    }
+
+    public WebElement getFirstPostFrame() {
+        return firstPostFrame;
+    }
+
+    public WebElement getMyPostsSwitcher() {
+        return myPostsSwitcher;
+    }
+
+    public WebElement getMyDraftsOption() {
+        return myDraftsOption;
+    }
+
+    public WebElement getSaveAsADraftSwitcher() {
+        return saveAsADraftSwitcher;
+    }
 
     public void enterTitle(String titleValue) {
         titleInputField.sendKeys(titleValue);

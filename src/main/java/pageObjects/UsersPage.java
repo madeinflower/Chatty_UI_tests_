@@ -9,29 +9,77 @@ public class UsersPage extends BasePage {
         super(driver);
     }
     @FindBy(xpath = "//h1[normalize-space()='Admin panel']")
-    public WebElement adminPanelElement;
+    private WebElement adminPanelElement;
     @FindBy(xpath = "//td[normalize-space()='1']")
-    public WebElement userNumber;
+    private WebElement userNumber;
     @FindBy(xpath = "//th[@class='id-hide']")
-    public WebElement userRole;
+    private WebElement userRole;
     @FindBy(xpath = "//th[@data-test='tableHeaderEmail']")
-    public WebElement userEmail;
+    private WebElement userEmail;
     @FindBy(xpath = "//tbody/tr[1]/td[4]")
-    public WebElement userName;
+    private WebElement userName;
     @FindBy(xpath = "//span[@data-test='editUserButton']")
-    public WebElement editUserButton;
+    private WebElement editUserButton;
     @FindBy(xpath = "//span[@data-test='deleteUserButton']")
-    public WebElement deleteUserButton;
+    private WebElement deleteUserButton;
     @FindBy(className = "post-header__plus-box")
-    public WebElement editElement;
+    private WebElement editElement;
     @FindBy(css = "span[data-test='post-header__plus']")
-    public WebElement plusElement;
+    private WebElement plusElement;
     @FindBy(xpath = "//input[@placeholder='+123456789012']")
-    public WebElement phoneNumberField;
+    private WebElement phoneNumberField;
     @FindBy(xpath = "//button[normalize-space()='Save']")
-    public WebElement saveButton;
+    private WebElement saveButton;
     @FindBy(xpath = "//button[normalize-space()='Load More']")
-    public WebElement loadMoreButton;
+    private WebElement loadMoreButton;
+
+    public WebElement getAdminPanelElement() {
+        return adminPanelElement;
+    }
+
+    public WebElement getUserNumber() {
+        return userNumber;
+    }
+
+    public WebElement getUserRole() {
+        return userRole;
+    }
+
+    public WebElement getUserEmail() {
+        return userEmail;
+    }
+
+    public WebElement getUserName() {
+        return userName;
+    }
+
+    public WebElement getEditUserButton() {
+        return editUserButton;
+    }
+
+    public WebElement getDeleteUserButton() {
+        return deleteUserButton;
+    }
+
+    public WebElement getEditElement() {
+        return editElement;
+    }
+
+    public WebElement getPlusElement() {
+        return plusElement;
+    }
+
+    public WebElement getPhoneNumberField() {
+        return phoneNumberField;
+    }
+
+    public WebElement getSaveButton() {
+        return saveButton;
+    }
+
+    public WebElement getLoadMoreButton() {
+        return loadMoreButton;
+    }
 
     public void enterPhoneNumber(String phoneNumberValue) {
         phoneNumberField.sendKeys(phoneNumberValue);

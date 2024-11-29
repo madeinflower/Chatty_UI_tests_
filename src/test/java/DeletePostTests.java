@@ -25,39 +25,39 @@ public class DeletePostTests extends BaseTestUser {
 
     @Test
     public void deletePublishedPost() {
-        wait.until(ExpectedConditions.visibilityOf(homeBlogPage.myPostsSwitcher));
+        wait.until(ExpectedConditions.visibilityOf(homeBlogPage.getMyPostsSwitcher()));
         homeBlogPage.clickOnMyPostSwitcher();
-        wait.until(ExpectedConditions.visibilityOf(homeBlogPage.firstPostFrame));
-        String firstPostTitleBeforeDeletion = homeBlogPage.firstPostFrame.getText();
-        homeBlogPage.firstPostFrame.click();
-        wait.until(ExpectedConditions.visibilityOf(editPage.deleteButton));
-        assertTrue(editPage.deleteButton.isDisplayed());
+        wait.until(ExpectedConditions.visibilityOf(homeBlogPage.getFirstPostFrame()));
+        String firstPostTitleBeforeDeletion = homeBlogPage.getFirstPostFrame().getText();
+        homeBlogPage.getFirstPostFrame().click();
+        wait.until(ExpectedConditions.visibilityOf(editPage.getDeleteButton()));
+        assertTrue(editPage.getDeleteButton().isDisplayed());
         editPage.clickOnDeleteButton();
-        wait.until(ExpectedConditions.visibilityOf(header.homeTab));
+        wait.until(ExpectedConditions.visibilityOf(header.getHomeTab()));
         header.hoverOverHomeTab();
-        header.homeTab.click();
-        wait.until(ExpectedConditions.visibilityOf(homeBlogPage.firstPostFrame));
-        String firstPostTitleAfterDeletion = homeBlogPage.firstPostFrame.getText();
+        header.getHomeTab().click();
+        wait.until(ExpectedConditions.visibilityOf(homeBlogPage.getFirstPostFrame()));
+        String firstPostTitleAfterDeletion = homeBlogPage.getFirstPostFrame().getText();
         assertNotEquals(firstPostTitleBeforeDeletion, firstPostTitleAfterDeletion, "Other post should be seen after deletion");
     }
 
     @Test
     public void deleteDraftPost() {
-        wait.until(ExpectedConditions.visibilityOf(homeBlogPage.myDraftsOption));
+        wait.until(ExpectedConditions.visibilityOf(homeBlogPage.getMyDraftsOption()));
         homeBlogPage.clickOnMyDraftsOption();
-        wait.until(ExpectedConditions.visibilityOf(homeBlogPage.firstPostFrame));
-        String firstDraftTitleBeforeDeletion = homeBlogPage.firstPostFrame.getText();
-        homeBlogPage.firstPostFrame.click();
-        wait.until(ExpectedConditions.visibilityOf(editPage.deleteButton));
-        assertTrue(editPage.deleteButton.isDisplayed());
+        wait.until(ExpectedConditions.visibilityOf(homeBlogPage.getFirstPostFrame()));
+        String firstDraftTitleBeforeDeletion = homeBlogPage.getFirstPostFrame().getText();
+        homeBlogPage.getFirstPostFrame().click();
+        wait.until(ExpectedConditions.visibilityOf(editPage.getDeleteButton()));
+        assertTrue(editPage.getDeleteButton().isDisplayed());
         editPage.clickOnDeleteButton();
-        wait.until(ExpectedConditions.visibilityOf(header.homeTab));
+        wait.until(ExpectedConditions.visibilityOf(header.getHomeTab()));
         header.hoverOverHomeTab();
-        header.homeTab.click();
-        wait.until(ExpectedConditions.visibilityOf(homeBlogPage.myDraftsOption));
+        header.getHomeTab().click();
+        wait.until(ExpectedConditions.visibilityOf(homeBlogPage.getMyDraftsOption()));
         homeBlogPage.clickOnMyDraftsOption();
-        wait.until(ExpectedConditions.visibilityOf(homeBlogPage.firstPostFrame));
-        String firstDraftTitleAfterDeletion = homeBlogPage.firstPostFrame.getText();
+        wait.until(ExpectedConditions.visibilityOf(homeBlogPage.getFirstPostFrame()));
+        String firstDraftTitleAfterDeletion = homeBlogPage.getFirstPostFrame().getText();
         assertNotEquals(firstDraftTitleBeforeDeletion, firstDraftTitleAfterDeletion, "Other post should be seen after deletion");
     }
 }

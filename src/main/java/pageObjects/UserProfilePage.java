@@ -3,49 +3,115 @@ package pageObjects;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 
 public class UserProfilePage extends BasePage {
+
+    protected Header header;
     public UserProfilePage(WebDriver driver) {
         super(driver);
     }
 
-    protected Header header;
-
     @FindBy(xpath = "//p[@data-test='profileEmail']")
-    public WebElement profileEmailIcon;
+    private WebElement profileEmailIcon;
     @FindBy(xpath = "//input[@placeholder='Name']")
-    public WebElement nameField;
+    private WebElement nameField;
     @FindBy(xpath = "//input[@placeholder='Surname']")
-    public WebElement surnameField;
+    private WebElement surnameField;
     @FindBy(xpath = "//select[@id='gender']")
-    public WebElement genderField;
+    private WebElement genderField;
     @FindBy(xpath = "//input[@id='birthDate']")
-    public WebElement birthdateField;
+    private WebElement birthdateField;
     @FindBy(xpath = "//input[@placeholder='+123456789012']")
-    public WebElement phoneField;
+    private WebElement phoneField;
     @FindBy(xpath = "//button[normalize-space()='Change password']")
-    public WebElement passwordField;
+    private WebElement passwordField;
     @FindBy(xpath = "//button[normalize-space()='Save']")
-    public WebElement saveButton;
-
+    private WebElement saveButton;
     @FindBy(xpath = "//span[@data-test='post-header__plus']")
-    public WebElement editPlusButton;
+    private WebElement editPlusButton;
     @FindBy(xpath = "//span[@data-test='post-header__plus']")
-    public WebElement editCancelElement;
+    private WebElement editCancelElement;
     @FindBy(css = ".PasswordModal_passParagraph__feEN9")
-    public WebElement passwordChangingPopUp;
+    private WebElement passwordChangingPopUp;
     @FindBy(xpath = "//input[@placeholder='Old password']")
-    public WebElement oldPasswordField;
+    private WebElement oldPasswordField;
     @FindBy(xpath = "//input[@placeholder='New password']")
-    public WebElement newPasswordField;
+    private WebElement newPasswordField;
     @FindBy(xpath = "//input[@placeholder='Confirm new password']")
-    public WebElement confirmNewPasswordField;
+    private WebElement confirmNewPasswordField;
     @FindBy(xpath = "//button[@class='PasswordModal_pass_btn__eGL9h']")
-    public WebElement passwordChangingPopUpSaveButton;
+    private WebElement passwordChangingPopUpSaveButton;
     @FindBy(xpath = "//img[@alt='Uploaded']")
-    public WebElement avatarOfTheUser;
+    private WebElement avatarOfTheUser;
+
+    public Header getHeader() {
+        return header;
+    }
+
+    public WebElement getProfileEmailIcon() {
+        return profileEmailIcon;
+    }
+
+    public WebElement getNameField() {
+        return nameField;
+    }
+
+    public WebElement getSurnameField() {
+        return surnameField;
+    }
+
+    public WebElement getGenderField() {
+        return genderField;
+    }
+
+    public WebElement getBirthdateField() {
+        return birthdateField;
+    }
+
+    public WebElement getPhoneField() {
+        return phoneField;
+    }
+
+    public WebElement getPasswordField() {
+        return passwordField;
+    }
+
+    public WebElement getSaveButton() {
+        return saveButton;
+    }
+
+    public WebElement getEditPlusButton() {
+        return editPlusButton;
+    }
+
+    public WebElement getEditCancelElement() {
+        return editCancelElement;
+    }
+
+    public WebElement getPasswordChangingPopUp() {
+        return passwordChangingPopUp;
+    }
+
+    public WebElement getOldPasswordField() {
+        return oldPasswordField;
+    }
+
+    public WebElement getNewPasswordField() {
+        return newPasswordField;
+    }
+
+    public WebElement getConfirmNewPasswordField() {
+        return confirmNewPasswordField;
+    }
+
+    public WebElement getPasswordChangingPopUpSaveButton() {
+        return passwordChangingPopUpSaveButton;
+    }
+
+    public WebElement getAvatarOfTheUser() {
+        return avatarOfTheUser;
+    }
 
     public String getCurrentGenderOption() {
         Select genderSelect = new Select(genderField);
@@ -63,6 +129,6 @@ public class UserProfilePage extends BasePage {
         assertElementIsDisplayed(profileEmailIcon);
     }
     public void clickOnYourProfileButton() {
-        header.yourProfileButton.click();
+        header.getYourProfileButton().click();
     }
 }

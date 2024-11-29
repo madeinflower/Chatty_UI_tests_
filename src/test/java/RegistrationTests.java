@@ -22,8 +22,8 @@ public class RegistrationTests extends BaseTestUser {
     @Test
         public void successfulRegistrationOfTheUser() {
         loginPage.clickOnSignUpButton();
-        wait.until(ExpectedConditions.visibilityOf(registrationPage.createAccountTitle));
-        assertTrue(registrationPage.createAccountTitle.isDisplayed());
+        wait.until(ExpectedConditions.visibilityOf(registrationPage.getCreateAccountTitle()));
+        assertTrue(registrationPage.getCreateAccountTitle().isDisplayed());
 
         String randomEmail = registrationPage.generateRandomEmail(3, 30);
         String randomPassword = registrationPage.generateRandomPassword(20);
@@ -34,14 +34,15 @@ public class RegistrationTests extends BaseTestUser {
 
         registrationPage.selectUserRole("User");
 
-        registrationPage.clickOnRegistrationButton();header.verifyChattyLogoIsDisplayed();
+        registrationPage.clickOnRegistrationButton();
+        header.verifyChattyLogoIsDisplayed();
     }
 
     @Test
     public void successfulRegistrationOfTheAdmin() {
         loginPage.clickOnSignUpButton();
-        wait.until(ExpectedConditions.visibilityOf(registrationPage.createAccountTitle));
-        assertTrue(registrationPage.createAccountTitle.isDisplayed());
+        wait.until(ExpectedConditions.visibilityOf(registrationPage.getCreateAccountTitle()));
+        assertTrue(registrationPage.getCreateAccountTitle().isDisplayed());
 
         String randomEmail = registrationPage.generateRandomEmail(3, 30);
         String randomPassword = registrationPage.generateRandomPassword(20);

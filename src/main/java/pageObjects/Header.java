@@ -10,24 +10,61 @@ public class Header extends BasePage{
     public Header(WebDriver driver) {
         super(driver);
     }
+
     @FindBy(xpath = "//img[@alt='Logo']")
-    public WebElement chattyLogo;
+    private WebElement chattyLogo;
     @FindBy(xpath = "//form[@class='form']")
-    public WebElement loginForm;
+    private WebElement loginForm;
     @FindBy(xpath = "//a[normalize-space()='Home']")
-    public WebElement homeTab;
+    private WebElement homeTab;
     @FindBy(xpath = "//a[normalize-space()='About']")
-    public WebElement aboutTab;
+    private WebElement aboutTab;
     @FindBy(xpath = "//a[normalize-space()='Contact']")
-    public WebElement contactTab;
+    private WebElement contactTab;
     @FindBy(xpath = "//div[@class='header']//p[1]")
-    public WebElement helloUsernameTab;
+    private WebElement helloUsernameTab;
     @FindBy(xpath = "//a[normalize-space()='Logout']")
-    public WebElement logOutButton;
+    private WebElement logOutButton;
     @FindBy(xpath = "//a[normalize-space()='Your Profile']")
-    public WebElement yourProfileButton;
+    private WebElement yourProfileButton;
     @FindBy(xpath = "//a[normalize-space()='My Drafts']")
-    public WebElement myDraftsButton;
+    private WebElement myDraftsButton;
+
+    public WebElement getChattyLogo() {
+        return chattyLogo;
+    }
+
+    public WebElement getLoginForm() {
+        return loginForm;
+    }
+
+    public WebElement getHomeTab() {
+        return homeTab;
+    }
+
+    public WebElement getAboutTab() {
+        return aboutTab;
+    }
+
+    public WebElement getContactTab() {
+        return contactTab;
+    }
+
+    public WebElement getHelloUsernameTab() {
+        return helloUsernameTab;
+    }
+
+    public WebElement getLogOutButton() {
+        return logOutButton;
+    }
+
+    public WebElement getYourProfileButton() {
+        return yourProfileButton;
+    }
+
+    public WebElement getMyDraftsButton() {
+        return myDraftsButton;
+    }
 
     public void logout() {
         helloUsernameTab.isDisplayed();

@@ -22,7 +22,7 @@ public class LoginLogoutTests extends BaseTestUser {
     public void testLoginWithEmptyEmailField() {
         loginPage = new LoginPage(driver);
         loginPage.inputPassword("Qwerty12345");
-        assertFalse(loginPage.loginButton.isEnabled());
+        assertFalse(loginPage.getLoginButton().isEnabled());
     }
 
     @Test
@@ -30,14 +30,14 @@ public class LoginLogoutTests extends BaseTestUser {
         loginPage = new LoginPage(driver);
         loginPage.inputEmail("tatsenko.tetiana@gmail.com");
         loginPage.submitForm();
-        wait.until(ExpectedConditions.visibilityOf(loginPage.errorMessage));
-        assertTrue(loginPage.errorMessage.isDisplayed());
+        wait.until(ExpectedConditions.visibilityOf(loginPage.getErrorMessage()));
+        assertTrue(loginPage.getErrorMessage().isDisplayed());
     }
 
     @Test
     public void testLoginWithEmptyAllFields() {
         loginPage = new LoginPage(driver);
-        assertFalse(loginPage.loginButton.isEnabled());
+        assertFalse(loginPage.getLoginButton().isEnabled());
     }
 
     @Test
@@ -53,7 +53,7 @@ public class LoginLogoutTests extends BaseTestUser {
         loginPage = new LoginPage(driver);
         loginPage.verifyPasswordEyeCloseIsDisplayed();
         loginPage.inputPassword("Qwerty12345");
-        loginPage.passwordEyeClose.click();
+        loginPage.getPasswordEyeClose().click();
         loginPage.verifyPasswordEyeOpenIsDisplayed();
     }
 
@@ -62,7 +62,7 @@ public class LoginLogoutTests extends BaseTestUser {
         loginWithValidDataUser();
         header = new Header(driver);
         header.verifyChattyLogoIsDisplayed();
-        header.helloUsernameTab.isDisplayed();
+        header.getHelloUsernameTab().isDisplayed();
         header.logout();
     }
 

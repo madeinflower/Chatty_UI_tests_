@@ -25,15 +25,15 @@ public class EditPostTests extends BaseTestUser {
 
         @Test
         public void editPostContentUsingValidData() {
-        wait.until(ExpectedConditions.visibilityOf(homeBlogPage.myPostsSwitcher));
+        wait.until(ExpectedConditions.visibilityOf(homeBlogPage.getMyPostsSwitcher()));
         homeBlogPage.clickOnMyPostSwitcher();
-        wait.until(ExpectedConditions.visibilityOf(homeBlogPage.firstPostFrame));
-        homeBlogPage.firstPostFrame.click();
-        wait.until(ExpectedConditions.visibilityOf(editPage.editButton));
-        assertTrue(editPage.editButton.isDisplayed());
+        wait.until(ExpectedConditions.visibilityOf(homeBlogPage.getFirstPostFrame()));
+        homeBlogPage.getFirstPostFrame().click();
+        wait.until(ExpectedConditions.visibilityOf(editPage.getEditButton()));
+        assertTrue(editPage.getEditButton().isDisplayed());
         editPage.clickOnEditButton();
-        wait.until(ExpectedConditions.visibilityOf(editPage.editPostPopUp));
-        assertTrue(editPage.editPostPopUp.isDisplayed());
+        wait.until(ExpectedConditions.visibilityOf(editPage.getEditPostPopUp()));
+        assertTrue(editPage.getEditPostPopUp().isDisplayed());
         String randomTitle = getRandomString(30);
         String randomDescription = getRandomString(70);
         String randomContent = getRandomString(500);
@@ -44,22 +44,22 @@ public class EditPostTests extends BaseTestUser {
         editPage.enterEditDescription(randomDescription);
         editPage.enterEditContent(randomContent);
         editPage.clickOnEditPostSubmitButton();
-        wait.until(ExpectedConditions.textToBePresentInElement(editPage.editedTitleField, randomTitle));
-        assertTrue(editPage.editedTitleField.isDisplayed());
+        wait.until(ExpectedConditions.textToBePresentInElement(editPage.getEditedTitleField(), randomTitle));
+        assertTrue(editPage.getEditedTitleField().isDisplayed());
      }
 
     @Test
     @Disabled // скорей всего баг вреализации, так как свитчер saveasdraft сохраняет стату с предыдущего редактирования
     public void editPostToDraft() {
-        wait.until(ExpectedConditions.visibilityOf(homeBlogPage.myPostsSwitcher));
+        wait.until(ExpectedConditions.visibilityOf(homeBlogPage.getMyPostsSwitcher()));
         homeBlogPage.clickOnMyPostSwitcher();
-        wait.until(ExpectedConditions.visibilityOf(homeBlogPage.firstPostFrame));
-        homeBlogPage.firstPostFrame.click();
-        wait.until(ExpectedConditions.visibilityOf(editPage.editButton));
-        assertTrue(editPage.editButton.isDisplayed());
+        wait.until(ExpectedConditions.visibilityOf(homeBlogPage.getFirstPostFrame()));
+        homeBlogPage.getFirstPostFrame().click();
+        wait.until(ExpectedConditions.visibilityOf(editPage.getEditButton()));
+        assertTrue(editPage.getEditButton().isDisplayed());
         editPage.clickOnEditButton();
-        wait.until(ExpectedConditions.visibilityOf(editPage.editPostPopUp));
-        assertTrue(editPage.editPostPopUp.isDisplayed());
+        wait.until(ExpectedConditions.visibilityOf(editPage.getEditPostPopUp()));
+        assertTrue(editPage.getEditPostPopUp().isDisplayed());
         String randomTitle = getRandomString(30);
         String randomDescription = getRandomString(70);
         String randomContent = getRandomString(500);
@@ -76,13 +76,13 @@ public class EditPostTests extends BaseTestUser {
 
         editPage.clickOnSaveAsADraftSwitcher();
         editPage.clickOnEditPostSubmitButton();
-        wait.until(ExpectedConditions.textToBePresentInElement(editPage.editedTitleField, "Some title here"));
-        assertTrue(editPage.editedTitleField.isDisplayed());
+        wait.until(ExpectedConditions.textToBePresentInElement(editPage.getEditedTitleField(), "Some title here"));
+        assertTrue(editPage.getEditedTitleField().isDisplayed());
         header.hoverOverHomeTab();
-        header.homeTab.click();
-        wait.until(ExpectedConditions.visibilityOf(homeBlogPage.myDraftsOption));
+        header.getHomeTab().click();
+        wait.until(ExpectedConditions.visibilityOf(homeBlogPage.getMyDraftsOption()));
         homeBlogPage.clickOnMyDraftsOption();
-        wait.until(ExpectedConditions.textToBePresentInElement(draftsPage.draftTitle, "Some title here"));
-        assertTrue(draftsPage.draftTitle.isDisplayed());
+        wait.until(ExpectedConditions.textToBePresentInElement(draftsPage.getDraftTitle(), "Some title here"));
+        assertTrue(draftsPage.getDraftTitle().isDisplayed());
     }
 }

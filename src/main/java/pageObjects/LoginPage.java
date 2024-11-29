@@ -9,21 +9,53 @@ public class LoginPage extends BasePage {
         super(driver);
     }
     @FindBy(xpath = "//form[@class='form']")
-    public WebElement loginForm;
+    private WebElement loginForm;
     @FindBy(xpath = "//input[@placeholder='Email']")
-    public WebElement inputEmail;
+    private WebElement inputEmail;
     @FindBy(xpath = "//input[@placeholder='Password']")
-    public WebElement inputPassword;
+    private WebElement inputPassword;
     @FindBy(xpath = "//button[normalize-space()='Login']")
-    public WebElement loginButton;
+    private WebElement loginButton;
     @FindBy(xpath = "//div[@class='text-error']")
-    public WebElement errorMessage;
+    private WebElement errorMessage;
     @FindBy(xpath = "//img[@alt='close']")
-    public WebElement passwordEyeClose;
+    private WebElement passwordEyeClose;
     @FindBy(xpath = "//img[@alt='open']")
-    public WebElement passwordEyeOpen;
+    private WebElement passwordEyeOpen;
     @FindBy(xpath = "//a[normalize-space()='Sign up']")
-    public WebElement signUpButton;
+    private WebElement signUpButton;
+
+    public WebElement getLoginForm() {
+        return loginForm;
+    }
+
+    public WebElement getInputEmail() {
+        return inputEmail;
+    }
+
+    public WebElement getInputPassword() {
+        return inputPassword;
+    }
+
+    public WebElement getLoginButton() {
+        return loginButton;
+    }
+
+    public WebElement getErrorMessage() {
+        return errorMessage;
+    }
+
+    public WebElement getPasswordEyeClose() {
+        return passwordEyeClose;
+    }
+
+    public WebElement getPasswordEyeOpen() {
+        return passwordEyeOpen;
+    }
+
+    public WebElement getSignUpButton() {
+        return signUpButton;
+    }
 
     public void inputEmail(String email) {
         inputEmail.clear();

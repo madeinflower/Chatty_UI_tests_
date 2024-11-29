@@ -17,39 +17,39 @@ public class HeaderTests extends BaseTestUser {
     public void navigationToPersonalBlogPageUsingHomeTab() {
         header.verifyChattyLogoIsDisplayed();
         header.hoverOverHomeTab();
-        header.assertElementIsDisplayed(header.chattyLogo);
+        header.assertElementIsDisplayed(header.getChattyLogo());
     }
 
     @Test
     public void navigationToPersonalBlogPageUsingAboutTab() {
         header.verifyChattyLogoIsDisplayed();
         header.hoverOverAboutTab();
-        header.assertElementIsDisplayed(header.chattyLogo);
+        header.assertElementIsDisplayed(header.getChattyLogo());
     }
 
     @Test
     public void navigationToPersonalBlogPageUsingContactTab() {
         header.verifyChattyLogoIsDisplayed();
         header.hoverOverContactTab();
-        header.assertElementIsDisplayed(header.chattyLogo);
+        header.assertElementIsDisplayed(header.getChattyLogo());
     }
 
     @Test
     public void accessToProfileNavigationOptionsUsingHelloUserNameTab() {
-        header.waitForVisibility(header.helloUsernameTab);
+        header.waitForVisibility(header.getHelloUsernameTab());
         header.hoverOverHelloUsernameTab();
-        header.assertElementIsDisplayed(header.yourProfileButton);
-        header.assertElementIsDisplayed(header.myDraftsButton);
-        header.assertElementIsDisplayed(header.logOutButton);
+        header.assertElementIsDisplayed(header.getYourProfileButton());
+        header.assertElementIsDisplayed(header.getMyDraftsButton());
+        header.assertElementIsDisplayed(header.getLogOutButton());
     }
 
     @Test
     public void navigationToProfilePageFromYourProfileButton() {
-        header.waitForVisibility(header.helloUsernameTab);
+        header.waitForVisibility(header.getHelloUsernameTab());
         header.hoverOverHelloUsernameTab();
-        header.yourProfileButton.click();
+        header.getYourProfileButton().click();
         userProfilePage = new UserProfilePage(driver);
-        header.waitForVisibility(userProfilePage.profileEmailIcon);
-        header.assertElementIsDisplayed(userProfilePage.profileEmailIcon);
+        header.waitForVisibility(userProfilePage.getProfileEmailIcon());
+        header.assertElementIsDisplayed(userProfilePage.getProfileEmailIcon());
     }
 }

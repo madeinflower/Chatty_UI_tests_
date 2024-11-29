@@ -9,27 +9,71 @@ public class EditPage extends BasePage {
         super(driver);
     }
     @FindBy(xpath = "//img[@alt='delete button']")
-    public WebElement deleteButton;
+    private WebElement deleteButton;
     @FindBy(xpath = "//img[@alt='edit button']")
-    public WebElement editButton;
+    private WebElement editButton;
     @FindBy(xpath = "//h2[normalize-space()='Edit Post']")
-    public WebElement editPostPopUp;
+    private WebElement editPostPopUp;
     @FindBy(xpath = "//input[@placeholder='Title']")
-    public WebElement editPostTitleField;
+    private WebElement editPostTitleField;
     @FindBy(xpath = "//input[@placeholder='Description']")
-    public WebElement editPostDescriptionField;
+    private WebElement editPostDescriptionField;
     @FindBy(xpath = "//textarea[@placeholder='My thoughts. No more than 1000 characters']")
-    public WebElement editPostContentField;
+    private WebElement editPostContentField;
     @FindBy(xpath = "//button[normalize-space()='Submit']")
-    public WebElement editPostSubmitButton;
+    private WebElement editPostSubmitButton;
     @FindBy(xpath = "//h3[normalize-space()='Some post here']")
-    public WebElement editedTitleField;
+    private WebElement editedTitleField;
     @FindBy(xpath = "//p[@class='post__description']")
-    public WebElement editedDescription;
+    private WebElement editedDescription;
     @FindBy(xpath = "//p[@class='post__description']")
-    public WebElement editedContent;
+    private WebElement editedContent;
     @FindBy(xpath = "//label[normalize-space()='Save as a draft']")
-    public WebElement saveAsADraftSwitcher;
+    private WebElement saveAsADraftSwitcher;
+
+    public WebElement getDeleteButton() {
+        return deleteButton;
+    }
+
+    public WebElement getEditButton() {
+        return editButton;
+    }
+
+    public WebElement getEditPostPopUp() {
+        return editPostPopUp;
+    }
+
+    public WebElement getEditPostTitleField() {
+        return editPostTitleField;
+    }
+
+    public WebElement getEditPostDescriptionField() {
+        return editPostDescriptionField;
+    }
+
+    public WebElement getEditPostContentField() {
+        return editPostContentField;
+    }
+
+    public WebElement getEditPostSubmitButton() {
+        return editPostSubmitButton;
+    }
+
+    public WebElement getEditedTitleField() {
+        return editedTitleField;
+    }
+
+    public WebElement getEditedDescription() {
+        return editedDescription;
+    }
+
+    public WebElement getEditedContent() {
+        return editedContent;
+    }
+
+    public WebElement getSaveAsADraftSwitcher() {
+        return saveAsADraftSwitcher;
+    }
 
     public void clearEditTitle() {
         editPostTitleField.clear();

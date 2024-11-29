@@ -22,106 +22,106 @@ public class UserProfileTests extends BaseTestUser {
 
     @Test
     public void editNameUsingValidData() {
-        wait.until(ExpectedConditions.visibilityOf(header.helloUsernameTab));
+        wait.until(ExpectedConditions.visibilityOf(header.getHelloUsernameTab()));
         header.hoverOverHelloUsernameTab();
         userProfilePage.clickOnYourProfileButton();
         userProfilePage.verifyProfileEmailIconIsDisplayed();
-        userProfilePage.editPlusButton.click();
-        userProfilePage.nameField.clear();
+        userProfilePage.getEditPlusButton().click();
+        userProfilePage.getNameField().clear();
         String randomName = getRandomName(15);
-        userProfilePage.nameField.sendKeys(randomName);
-        userProfilePage.saveButton.click();
-        wait.until(ExpectedConditions.visibilityOf(userProfilePage.editPlusButton));
-        assertTrue(userProfilePage.editPlusButton.isDisplayed());
+        userProfilePage.getNameField().sendKeys(randomName);
+        userProfilePage.getSaveButton().click();
+        wait.until(ExpectedConditions.visibilityOf(userProfilePage.getEditPlusButton()));
+        assertTrue(userProfilePage.getEditPlusButton().isDisplayed());
     }
 
     @Test
     public void editSurnameUsingValidData() {
-        wait.until(ExpectedConditions.visibilityOf(header.helloUsernameTab));
+        wait.until(ExpectedConditions.visibilityOf(header.getHelloUsernameTab()));
         header.hoverOverHelloUsernameTab();
         userProfilePage.clickOnYourProfileButton();
         userProfilePage.verifyProfileEmailIconIsDisplayed();
-        userProfilePage.editPlusButton.click();
-        userProfilePage.surnameField.clear();
+        userProfilePage.getEditPlusButton().click();
+        userProfilePage.getSurnameField().clear();
         String randomSurname = getRandomSurname(15);
-        userProfilePage.surnameField.sendKeys(randomSurname);
-        userProfilePage.saveButton.click();
-        wait.until(ExpectedConditions.visibilityOf(userProfilePage.editPlusButton));
-        assertTrue(userProfilePage.editPlusButton.isDisplayed());
+        userProfilePage.getSurnameField().sendKeys(randomSurname);
+        userProfilePage.getSaveButton().click();
+        wait.until(ExpectedConditions.visibilityOf(userProfilePage.getEditPlusButton()));
+        assertTrue(userProfilePage.getEditPlusButton().isDisplayed());
     }
 
     @Test
     public void changeGenderOption() {
-        wait.until(ExpectedConditions.visibilityOf(header.helloUsernameTab));
+        wait.until(ExpectedConditions.visibilityOf(header.getHelloUsernameTab()));
         header.hoverOverHelloUsernameTab();
         userProfilePage.clickOnYourProfileButton();
-        wait.until(ExpectedConditions.visibilityOf(userProfilePage.profileEmailIcon));
-        assertTrue(userProfilePage.profileEmailIcon.isDisplayed());
-        userProfilePage.editPlusButton.click();
+        wait.until(ExpectedConditions.visibilityOf(userProfilePage.getProfileEmailIcon()));
+        assertTrue(userProfilePage.getProfileEmailIcon().isDisplayed());
+        userProfilePage.getEditPlusButton().click();
         String currentGender = userProfilePage.getCurrentGenderOption();
         if (currentGender.equals("FEMALE")) {
             userProfilePage.selectGenderOption("MALE");
         } else if (currentGender.equals("MALE")) {
             userProfilePage.selectGenderOption("FEMALE");
         }
-        userProfilePage.saveButton.click();
-        wait.until(ExpectedConditions.visibilityOf(userProfilePage.editCancelElement));
-        assertTrue(userProfilePage.editCancelElement.isDisplayed());
+        userProfilePage.getSaveButton().click();
+        wait.until(ExpectedConditions.visibilityOf(userProfilePage.getEditCancelElement()));
+        assertTrue(userProfilePage.getEditCancelElement().isDisplayed());
     }
 
     @Test
     @Disabled // баг в реализации
     public void changeBirthdayOption() {
-        wait.until(ExpectedConditions.visibilityOf(header.helloUsernameTab));
+        wait.until(ExpectedConditions.visibilityOf(header.getHelloUsernameTab()));
         header.hoverOverHelloUsernameTab();
         userProfilePage.clickOnYourProfileButton();
-        wait.until(ExpectedConditions.visibilityOf(userProfilePage.profileEmailIcon));
-        assertTrue(userProfilePage.profileEmailIcon.isDisplayed());
-        userProfilePage.editPlusButton.click();
-        userProfilePage.birthdateField.click();
-        userProfilePage.birthdateField.sendKeys("test");
-        userProfilePage.birthdateField.click();
-        userProfilePage.birthdateField.sendKeys("12/03/2000");
-        userProfilePage.saveButton.click();
-        wait.until(ExpectedConditions.visibilityOf(userProfilePage.editCancelElement));
-        assertTrue(userProfilePage.editCancelElement.isDisplayed());
+        wait.until(ExpectedConditions.visibilityOf(userProfilePage.getProfileEmailIcon()));
+        assertTrue(userProfilePage.getProfileEmailIcon().isDisplayed());
+        userProfilePage.getEditPlusButton().click();
+        userProfilePage.getBirthdateField().click();
+        userProfilePage.getBirthdateField().sendKeys("test");
+        userProfilePage.getBirthdateField().click();
+        userProfilePage.getBirthdateField().sendKeys("12/03/2000");
+        userProfilePage.getSaveButton().click();
+        wait.until(ExpectedConditions.visibilityOf(userProfilePage.getEditCancelElement()));
+        assertTrue(userProfilePage.getEditCancelElement().isDisplayed());
     }
 
     @Test
     public void editPhoneNumberUsingValidData() {
-        wait.until(ExpectedConditions.visibilityOf(header.helloUsernameTab));
+        wait.until(ExpectedConditions.visibilityOf(header.getHelloUsernameTab()));
         header.hoverOverHelloUsernameTab();
         userProfilePage.clickOnYourProfileButton();
         userProfilePage.verifyProfileEmailIconIsDisplayed();
-        userProfilePage.editPlusButton.click();
-        userProfilePage.phoneField.clear();
+        userProfilePage.getEditPlusButton().click();
+        userProfilePage.getPhoneField().clear();
         String randomPhoneNumber = getRandomPhoneNumber();
-        userProfilePage.surnameField.sendKeys(randomPhoneNumber);
-        userProfilePage.saveButton.click();
-        wait.until(ExpectedConditions.visibilityOf(userProfilePage.editPlusButton));
-        assertTrue(userProfilePage.editPlusButton.isDisplayed());
+        userProfilePage.getSurnameField().sendKeys(randomPhoneNumber);
+        userProfilePage.getSaveButton().click();
+        wait.until(ExpectedConditions.visibilityOf(userProfilePage.getEditPlusButton()));
+        assertTrue(userProfilePage.getEditPlusButton().isDisplayed());
     }
 
     @Test
     // здесь как-то надо прописать, чтобы после каждого раза, как меняется пароль в этом тесте, новый пароль подтягивался в BaseTest
     public void editPasswordUsingValidData() {
-        wait.until(ExpectedConditions.visibilityOf(header.helloUsernameTab));
+        wait.until(ExpectedConditions.visibilityOf(header.getHelloUsernameTab()));
         header.hoverOverHelloUsernameTab();
         userProfilePage.clickOnYourProfileButton();
-        wait.until(ExpectedConditions.visibilityOf(userProfilePage.profileEmailIcon));
-        assertTrue(userProfilePage.profileEmailIcon.isDisplayed());
-        userProfilePage.editPlusButton.click();
-        wait.until(ExpectedConditions.visibilityOf(userProfilePage.editCancelElement));
-        userProfilePage.passwordField.click();
-        wait.until(ExpectedConditions.visibilityOf(userProfilePage.passwordChangingPopUp));
-        assertTrue(userProfilePage.passwordChangingPopUp.isDisplayed());
-        userProfilePage.oldPasswordField.sendKeys("Qwerty1234");
-        userProfilePage.newPasswordField.sendKeys("Qwerty12345");
-        userProfilePage.confirmNewPasswordField.sendKeys("Qwerty12345");
-        userProfilePage.passwordChangingPopUpSaveButton.click();
-        userProfilePage.saveButton.click();
-        wait.until(ExpectedConditions.visibilityOf(userProfilePage.editCancelElement));
-        assertTrue(userProfilePage.editCancelElement.isDisplayed());
+        wait.until(ExpectedConditions.visibilityOf(userProfilePage.getProfileEmailIcon()));
+        assertTrue(userProfilePage.getProfileEmailIcon().isDisplayed());
+        userProfilePage.getEditPlusButton().click();
+        wait.until(ExpectedConditions.visibilityOf(userProfilePage.getEditCancelElement()));
+        userProfilePage.getPasswordField().click();
+        wait.until(ExpectedConditions.visibilityOf(userProfilePage.getPasswordChangingPopUp()));
+        assertTrue(userProfilePage.getPasswordChangingPopUp().isDisplayed());
+        userProfilePage.getOldPasswordField().sendKeys("Qwerty1234");
+        userProfilePage.getNewPasswordField().sendKeys("Qwerty12345");
+        userProfilePage.getConfirmNewPasswordField().sendKeys("Qwerty12345");
+        userProfilePage.getPasswordChangingPopUpSaveButton().click();
+        userProfilePage.getSaveButton().click();
+        wait.until(ExpectedConditions.visibilityOf(userProfilePage.getEditCancelElement()));
+        assertTrue(userProfilePage.getEditCancelElement().isDisplayed());
     }
 }
 

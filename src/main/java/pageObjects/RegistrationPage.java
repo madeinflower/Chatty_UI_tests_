@@ -14,27 +14,71 @@ public class RegistrationPage extends BasePage {
     }
 
     @FindBy(xpath = "//h1[normalize-space()='Create Account']")
-    public WebElement createAccountTitle;
+    private WebElement createAccountTitle;
     @FindBy(xpath = "//input[@placeholder='Email']")
-    public WebElement emailInputField;
+    private WebElement emailInputField;
     @FindBy(xpath = "//input[@placeholder='Password']")
-    public WebElement passwordInputField;
+    private WebElement passwordInputField;
     @FindBy(xpath = "//input[@placeholder='Confirm password']")
-    public WebElement confirmPasswordField;
+    private WebElement confirmPasswordField;
     @FindBy(xpath = "//button[normalize-space()='Registration']")
-    public WebElement registrationButton;
+    private WebElement registrationButton;
     @FindBy(xpath = "//form[@class='form']//select")
-    public WebElement dropDownMenuUserAdmin;
+    private WebElement dropDownMenuUserAdmin;
     @FindBy(xpath = "//div[normalize-space()='Password must be 8-100 characters and include at least one letter and one digit']")
-    public WebElement passwordFieldErrorMessage;
+    private WebElement passwordFieldErrorMessage;
     @FindBy(xpath = "//a[normalize-space()='Contact us']")
-    public WebElement contactUsOption;
+    private WebElement contactUsOption;
     @FindBy(xpath = "//a[normalize-space()='About us']")
-    public WebElement aboutUsOption;
+    private WebElement aboutUsOption;
     @FindBy(xpath = "//div[normalize-space()='Email cannot be empty']")
-    public WebElement emailInputFieldErrorMessage;
+    private WebElement emailInputFieldErrorMessage;
     @FindBy(xpath = "//div[normalize-space()='Confirm password cannot be empty']")
-    public WebElement confirmPasswordInputFieldErrorMessage;
+    private WebElement confirmPasswordInputFieldErrorMessage;
+
+    public WebElement getCreateAccountTitle() {
+        return createAccountTitle;
+    }
+
+    public WebElement getEmailInputField() {
+        return emailInputField;
+    }
+
+    public WebElement getPasswordInputField() {
+        return passwordInputField;
+    }
+
+    public WebElement getConfirmPasswordField() {
+        return confirmPasswordField;
+    }
+
+    public WebElement getRegistrationButton() {
+        return registrationButton;
+    }
+
+    public WebElement getDropDownMenuUserAdmin() {
+        return dropDownMenuUserAdmin;
+    }
+
+    public WebElement getPasswordFieldErrorMessage() {
+        return passwordFieldErrorMessage;
+    }
+
+    public WebElement getContactUsOption() {
+        return contactUsOption;
+    }
+
+    public WebElement getAboutUsOption() {
+        return aboutUsOption;
+    }
+
+    public WebElement getEmailInputFieldErrorMessage() {
+        return emailInputFieldErrorMessage;
+    }
+
+    public WebElement getConfirmPasswordInputFieldErrorMessage() {
+        return confirmPasswordInputFieldErrorMessage;
+    }
 
     public void enterEmailField(String email) {
         emailInputField.clear();

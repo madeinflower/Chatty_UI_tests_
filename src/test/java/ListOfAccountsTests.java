@@ -19,67 +19,67 @@ public class ListOfAccountsTests extends BaseTestAdmin {
 
     @Test
     public void viewListOfCreatedAccounts() {
-        wait.until(ExpectedConditions.textToBePresentInElement(usersPage.adminPanelElement, "Admin panel"));
-        assertTrue(usersPage.adminPanelElement.isDisplayed());
-        wait.until(ExpectedConditions.visibilityOf(usersPage.userNumber));
-        wait.until(ExpectedConditions.visibilityOf(usersPage.userRole));
-        wait.until(ExpectedConditions.visibilityOf(usersPage.userEmail));
-        wait.until(ExpectedConditions.visibilityOf(usersPage.userName));
-        wait.until(ExpectedConditions.visibilityOf(usersPage.editUserButton));
-        wait.until(ExpectedConditions.visibilityOf(usersPage.deleteUserButton));
-        assertTrue(usersPage.deleteUserButton.isDisplayed());
+        wait.until(ExpectedConditions.textToBePresentInElement(usersPage.getAdminPanelElement(), "Admin panel"));
+        assertTrue(usersPage.getAdminPanelElement().isDisplayed());
+        wait.until(ExpectedConditions.visibilityOf(usersPage.getUserNumber()));
+        wait.until(ExpectedConditions.visibilityOf(usersPage.getUserRole()));
+        wait.until(ExpectedConditions.visibilityOf(usersPage.getUserEmail()));
+        wait.until(ExpectedConditions.visibilityOf(usersPage.getUserName()));
+        wait.until(ExpectedConditions.visibilityOf(usersPage.getEditUserButton()));
+        wait.until(ExpectedConditions.visibilityOf(usersPage.getDeleteUserButton()));
+        assertTrue(usersPage.getDeleteUserButton().isDisplayed());
     }
 
     @Test
     public void editAccountDetails() {
-        wait.until(ExpectedConditions.textToBePresentInElement(usersPage.adminPanelElement, "Admin panel"));
-        assertTrue(usersPage.adminPanelElement.isDisplayed());
+        wait.until(ExpectedConditions.textToBePresentInElement(usersPage.getAdminPanelElement(), "Admin panel"));
+        assertTrue(usersPage.getAdminPanelElement().isDisplayed());
         usersPage.clickOnEditUserButton();
-        wait.until(ExpectedConditions.textToBePresentInElement(usersPage.editElement, "Edit"));
-        assertTrue(usersPage.editElement.isDisplayed());
-        wait.until(ExpectedConditions.textToBePresentInElement(usersPage.plusElement, "+"));
-        assertTrue(usersPage.plusElement.isDisplayed());
+        wait.until(ExpectedConditions.textToBePresentInElement(usersPage.getEditElement(), "Edit"));
+        assertTrue(usersPage.getEditElement().isDisplayed());
+        wait.until(ExpectedConditions.textToBePresentInElement(usersPage.getPlusElement(), "+"));
+        assertTrue(usersPage.getPlusElement().isDisplayed());
         usersPage.clickOnPlusElement();
-        wait.until(ExpectedConditions.textToBePresentInElement(usersPage.editElement, "Cancel"));
-        assertTrue(usersPage.editElement.isDisplayed());
+        wait.until(ExpectedConditions.textToBePresentInElement(usersPage.getEditElement(), "Cancel"));
+        assertTrue(usersPage.getEditElement().isDisplayed());
         usersPage.clearOfPhoneNumberField();
         usersPage.enterPhoneNumber("12345678900");
         usersPage.clickOnSaveButton();
-        wait.until(ExpectedConditions.textToBePresentInElement(usersPage.editElement, "Edit"));
-        assertTrue(usersPage.editElement.isDisplayed());
+        wait.until(ExpectedConditions.textToBePresentInElement(usersPage.getEditElement(), "Edit"));
+        assertTrue(usersPage.getEditElement().isDisplayed());
     }
 
     @Test
     public void editAccountDetailsDiscardChanges() {
-        wait.until(ExpectedConditions.textToBePresentInElement(usersPage.adminPanelElement, "Admin panel"));
-        assertTrue(usersPage.adminPanelElement.isDisplayed());
+        wait.until(ExpectedConditions.textToBePresentInElement(usersPage.getAdminPanelElement(), "Admin panel"));
+        assertTrue(usersPage.getAdminPanelElement().isDisplayed());
         usersPage.clickOnEditUserButton();
-        wait.until(ExpectedConditions.textToBePresentInElement(usersPage.editElement, "Edit"));
-        assertTrue(usersPage.editElement.isDisplayed());
-        wait.until(ExpectedConditions.textToBePresentInElement(usersPage.plusElement, "+"));
-        assertTrue(usersPage.plusElement.isDisplayed());
+        wait.until(ExpectedConditions.textToBePresentInElement(usersPage.getEditElement(), "Edit"));
+        assertTrue(usersPage.getEditElement().isDisplayed());
+        wait.until(ExpectedConditions.textToBePresentInElement(usersPage.getPlusElement(), "+"));
+        assertTrue(usersPage.getPlusElement().isDisplayed());
         usersPage.clickOnPlusElement();
-        wait.until(ExpectedConditions.textToBePresentInElement(usersPage.editElement, "Cancel"));
-        assertTrue(usersPage.editElement.isDisplayed());
+        wait.until(ExpectedConditions.textToBePresentInElement(usersPage.getEditElement(), "Cancel"));
+        assertTrue(usersPage.getEditElement().isDisplayed());
         usersPage.clearOfPhoneNumberField();
         usersPage.enterPhoneNumber("12345678900");
         usersPage.clickOnPlusElement();
-        wait.until(ExpectedConditions.textToBePresentInElement(usersPage.editElement, "Edit"));
-        assertTrue(usersPage.editElement.isDisplayed());
+        wait.until(ExpectedConditions.textToBePresentInElement(usersPage.getEditElement(), "Edit"));
+        assertTrue(usersPage.getEditElement().isDisplayed());
     }
 
     @Test
     @Disabled // надо подумать как прописать то, чтобы после клика на кнопку DeleteUser, удаленный юзер не отображался в списке
     public void deleteAccount() {
-        wait.until(ExpectedConditions.textToBePresentInElement(usersPage.adminPanelElement, "Admin panel"));
-        assertTrue(usersPage.adminPanelElement.isDisplayed());
+        wait.until(ExpectedConditions.textToBePresentInElement(usersPage.getAdminPanelElement(), "Admin panel"));
+        assertTrue(usersPage.getAdminPanelElement().isDisplayed());
         usersPage.clickOnDeleteUserButton();
     }
 
     @Test
     public void showMoreUsersByLoadMoreButtonClick() {
-        wait.until(ExpectedConditions.textToBePresentInElement(usersPage.adminPanelElement, "Admin panel"));
-        assertTrue(usersPage.adminPanelElement.isDisplayed());
+        wait.until(ExpectedConditions.textToBePresentInElement(usersPage.getAdminPanelElement(), "Admin panel"));
+        assertTrue(usersPage.getAdminPanelElement().isDisplayed());
         usersPage.clickOnLoadMoreButton();
     }
 }
