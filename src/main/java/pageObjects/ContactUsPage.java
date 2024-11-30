@@ -42,11 +42,14 @@ package pageObjects;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class ContactUsPage extends BasePage {
     public ContactUsPage(WebDriver driver) {
         super(driver);
     }
+
+    protected  Header header;
 
     @FindBy(xpath = "//h1[normalize-space()='Contact Us']")
     private WebElement contactUsElement;
@@ -98,7 +101,6 @@ public class ContactUsPage extends BasePage {
         return invalidEmailFormatMessage;
     }
 
-    // Методы-обертки для работы с веб-элементами
     public void enterName(String nameValue) {
         nameField.clear();
         nameField.sendKeys(nameValue);
@@ -117,13 +119,18 @@ public class ContactUsPage extends BasePage {
     public void clickOnSendMessageButton() {
         sendMessageButton.click();
     }
+    public void openContactUsPage() {
+        wait.until(ExpectedConditions.visibilityOf(header.getContactTab()));
+        header.hoverOverContactTab();
+        header.getContactTab().click();
+        waitForVisibility(contactUsElement);
+        assertElementIsDisplayed(contactUsElement);
+    }
 
-    // Метод для проверки видимости сообщения об успешной отправке
     public boolean isFeedbackSubmittedDisplayed(String expectedMessage) {
         return feedbackSubmittedMessage.getText().contains(expectedMessage);
     }
 
-    // Метод для проверки сообщения об ошибке валидации email
     public boolean isInvalidEmailMessageDisplayed(String expectedMessage) {
         return invalidEmailFormatMessage.getText().contains(expectedMessage);
     }
